@@ -1,0 +1,107 @@
+{
+	"name": "type-enforcer-ui-addon",
+	"version": "1.0.0-beta.0",
+	"description": "An addon for type-enforcer with UI related data types and enforcer functions",
+	"main": "index.js",
+	"scripts": {
+		"test": "karma start --single-run",
+		"test-watch": "karma start",
+		"patch": "npm version patch -m \"Increment patch version to %s\" && npm publish",
+		"minor": "npm version minor -m \"Increment minor version to %s\" && npm publish",
+		"major": "npm version major -m \"Increment major version to %s\" && npm publish",
+		"docs-readme": "jsdoc2md index.js > README.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-enforce": "jsdoc2md src/enforcer/**/*.js > docs/enforce.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-method": "jsdoc2md src/methods/**/*.js > docs/method.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-checks": "jsdoc2md src/checks/**/*.js > docs/checks.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-csssize": "jsdoc2md src/CssSize.js > docs/CssSize.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-dockpoint": "jsdoc2md src/DockPoint.js > docs/DockPoint.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs-thickness": "jsdoc2md src/Thickness.js > docs/Thickness.md -t docs/docs.hbs --plugin dmd-readable",
+		"docs": "npm run docs-readme && npm run docs-enforce && npm run docs-method && npm run docs-checks && npm run docs-csssize && npm run docs-dockpoint && npm run docs-thickness"
+	},
+	"badges": [
+		{
+			"name": "npm",
+			"image": "https://img.shields.io/npm/v/type-enforcer-ui-addon.svg",
+			"url": "https://npmjs.com/package/type-enforcer-ui-addon"
+		},
+		{
+			"name": "build",
+			"image": "https://travis-ci.org/DarrenPaulWright/type-enforcer-ui-addon.svg?branch=master",
+			"url": "https://travis-ci.org/DarrenPaulWright/type-enforcer-ui-addon"
+		},
+		{
+			"name": "coverage",
+			"image": "https://coveralls.io/repos/github/DarrenPaulWright/type-enforcer-ui-addon/badge.svg?branch=master",
+			"url": "https://coveralls.io/github/DarrenPaulWright/type-enforcer-ui-addon?branch=master"
+		},
+		{
+			"name": "deps",
+			"image": "https://david-dm.org/darrenpaulwright/type-enforcer-ui-addon.svg",
+			"url": "https://david-dm.org/darrenpaulwright/type-enforcer-ui-addon"
+		},
+		{
+			"name": "size",
+			"image": "https://packagephobia.now.sh/badge?p=type-enforcer-ui-addon",
+			"url": "https://packagephobia.now.sh/result?p=type-enforcer-ui-addon"
+		},
+		{
+			"name": "vulnerabilities",
+			"image": "https://snyk.io/test/github/DarrenPaulWright/type-enforcer-ui-addon/badge.svg?targetFile=package.json",
+			"url": "https://snyk.io/test/github/DarrenPaulWright/type-enforcer-ui-addon?targetFile=package.json"
+		},
+		{
+			"name": "license",
+			"image": "https://img.shields.io/github/license/DarrenPaulWright/type-enforcer-ui-addon.svg",
+			"url": "https://npmjs.com/package/type-enforcer-ui-addon/LICENSE.md"
+		}
+	],
+	"files": [
+		"/src"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DarrenPaulWright/type-enforcer-ui-addon.git"
+	},
+	"keywords": [
+		"type",
+		"enforce",
+		"method"
+	],
+	"author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/DarrenPaulWright/type-enforcer-ui-addon/issues"
+	},
+	"homepage": "https://github.com/DarrenPaulWright/type-enforcer-ui-addon#readme",
+	"dependencies": {
+		"object-agent": "^1.2.0",
+		"type-enforcer": "^1.0.0-beta.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/preset-env": "^7.6.3",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
+		"babel-plugin-istanbul": "^5.2.0",
+		"chai": "^4.2.0",
+		"display-value": "^1.3.0",
+		"dmd-readable": "^1.0.0",
+		"eslint": "^6.6.0",
+		"eslint-loader": "^3.0.2",
+		"eslint-plugin-babel": "^5.3.0",
+		"jsdoc-to-markdown": "^5.0.2",
+		"karma": "^4.4.1",
+		"karma-brief-reporter": "0.2.1",
+		"karma-chrome-launcher": "^3.1.0",
+		"karma-coverage": "^2.0.1",
+		"karma-coveralls": "^2.1.0",
+		"karma-firefox-launcher": "^1.2.0",
+		"karma-mocha": "^1.3.0",
+		"karma-webpack": "^4.0.2",
+		"mocha": "^6.2.2",
+		"test-runner-config": "^0.5.0",
+		"type-enforcer-test-helper": "^1.0.1",
+		"wallaby-webpack": "^3.9.15",
+		"webpack": "^4.41.2"
+	}
+}
