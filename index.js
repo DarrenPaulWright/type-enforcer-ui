@@ -47,3 +47,5 @@ export * from './src/CssSize';
 export { default as CssSize } from './src/CssSize';
 export { default as DockPoint } from './src/DockPoint';
 export { default as Thickness } from './src/Thickness';
+
+import './src/addon';
