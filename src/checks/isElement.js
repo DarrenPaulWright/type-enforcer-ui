@@ -3,7 +3,7 @@
  *
  * @example
  * ``` javascript
- * import { isElement } from 'type-enforcer-ui-addon';
+ * import { isElement } from 'type-enforcer-ui';
  *
  * isElement(document.createElement('div'));
  * // => true

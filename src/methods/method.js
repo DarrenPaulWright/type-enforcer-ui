@@ -1,3 +1,4 @@
+import { method } from 'type-enforcer';
 import methodCssSize from './methodCssSize';
 import methodDockPoint from './methodDockPoint';
 import methodElement from './methodElement';
@@ -7,10 +8,10 @@ import methodThickness from './methodThickness';
  * Enforce data types and remove common boilerplate code on class methods.
  *
  * ``` javascript
- * import { method } from 'type-enforcer-ui-addon';
+ * import { method } from 'type-enforcer-ui';
  *
  * // Or import individual functions
- * import { methodBoolean, methodString } from 'type-enforcer-ui-addon';
+ * import { methodBoolean, methodString } from 'type-enforcer-ui';
  * ```
  *
  * @example
@@ -36,6 +37,7 @@ import methodThickness from './methodThickness';
  * @typedef {object} method
  */
 export default {
+	...method,
 	cssSize: methodCssSize,
 	dockPoint: methodDockPoint,
 	element: methodElement,

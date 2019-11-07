@@ -5,7 +5,7 @@ import isElement from '../checks/isElement';
  *
  * @example
  * ``` javascript
- * import { enforce } from 'type-enforcer-ui-addon';
+ * import { enforce } from 'type-enforcer-ui';
  *
  * enforce.element(document.createElement('span'), document.createElement('div'));
  * // => a span element

@@ -5,7 +5,7 @@ import Thickness from '../Thickness';
  *
  * @example
  * ``` javascript
- * import { isThickness } from 'type-enforcer-ui-addon';
+ * import { isThickness } from 'type-enforcer-ui';
  *
  * isThickness(new Thickness());
  * // => true

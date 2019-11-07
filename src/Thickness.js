@@ -14,7 +14,7 @@ const _ = new PrivateVars();
  *
  * @example
  * ``` javascript
- * import { Thickness } from 'type-enforcer-ui-addon';
+ * import { Thickness } from 'type-enforcer-ui';
  *
  * const thickness1 = new Thickness();
  * console.log(thickness1.toString());

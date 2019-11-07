@@ -5,7 +5,7 @@ import CssSize from '../CssSize';
  *
  * @example
  * ``` javascript
- * import { isCssSize } from 'type-enforcer-ui-addon';
+ * import { isCssSize } from 'type-enforcer-ui';
  *
  * isCssSize(new CssSize());
  * // => true

@@ -6,7 +6,7 @@ import DockPoint from '../DockPoint';
  *
  * @example
  * ``` javascript
- * import { enforce } from 'type-enforcer-ui-addon';
+ * import { enforce } from 'type-enforcer-ui';
  *
  * enforce.dockPoint(new DockPoint(DockPoint.POINTS.TOP), new DockPoint(DockPoint.POINTS.BOTTOM));
  * // => dockPoint of top

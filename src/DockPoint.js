@@ -48,7 +48,7 @@ const getOpposite = (direction) => {
  * Allows the designation of a specific point relative to an object.
  *
  * ``` javascript
- * import { DockPoint } from 'type-enforcer-ui-addon';
+ * import { DockPoint } from 'type-enforcer-ui';
  * ```
  *
  * @class DockPoint

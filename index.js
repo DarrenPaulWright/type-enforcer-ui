@@ -3,7 +3,7 @@
  * @summary
  *
  * ```
- * npm install type-enforcer-ui-addon
+ * npm install type-enforcer-ui
  * ```
  * _Requires Babel 7.2+_
  */
@@ -25,6 +25,8 @@
  * #### Type Enforcing Methods
  * - [method](docs/method.md)
  */
+export * from 'type-enforcer';
+
 export { default as is } from './src/checks/is';
 export { default as isCssSize } from './src/checks/isCssSize';
 export { default as isDockPoint } from './src/checks/isDockPoint';
@@ -47,5 +49,3 @@ export * from './src/CssSize';
 export { default as CssSize } from './src/CssSize';
 export { default as DockPoint } from './src/DockPoint';
 export { default as Thickness } from './src/Thickness';
-
-import './src/addon';

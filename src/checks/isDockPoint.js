@@ -5,7 +5,7 @@ import DockPoint from '../DockPoint';
  *
  * @example
  * ``` javascript
- * import { isDockPoint } from 'type-enforcer-ui-addon';
+ * import { isDockPoint } from 'type-enforcer-ui';
  *
  * isDockPoint(new DockPoint());
  * // => true

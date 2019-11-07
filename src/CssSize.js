@@ -119,7 +119,7 @@ const _ = new PrivateVars();
  * A class for css sizes
  *
  * ``` javascript
- * import { CssSize } from 'type-enforcer-ui-addon';
+ * import { CssSize } from 'type-enforcer-ui';
  * ```
  *
  * @class CssSize

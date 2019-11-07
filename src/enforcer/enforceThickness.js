@@ -6,7 +6,7 @@ import Thickness from '../Thickness';
  *
  * @example
  * ``` javascript
- * import { enforce } from 'type-enforcer-ui-addon';
+ * import { enforce } from 'type-enforcer-ui';
  *
  * enforce.thickness(new Thickness('12px 20px'), new Thickness());
  * // => thickness of '12px 20px'

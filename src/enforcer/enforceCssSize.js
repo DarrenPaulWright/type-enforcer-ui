@@ -6,7 +6,7 @@ import CssSize from '../CssSize';
  *
  * @example
  * ``` javascript
- * import { enforce } from 'type-enforcer-ui-addon';
+ * import { enforce } from 'type-enforcer-ui';
  *
  * enforce.cssSize(new CssSize('14px'), new CssSize());
  * // => cssSize of 14px
