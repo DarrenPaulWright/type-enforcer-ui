@@ -24,6 +24,9 @@
  *
  * #### Type Enforcing Methods
  * - [method](docs/method.md)
+ *
+ * #### Also included:
+ * - [windowResize](docs/windowResize.md)
  */
 export * from 'type-enforcer';
 
@@ -49,3 +52,4 @@ export * from './src/CssSize';
 export { default as CssSize } from './src/CssSize';
 export { default as DockPoint } from './src/DockPoint';
 export { default as Thickness } from './src/Thickness';
+export { default as windowResize } from './src/windowResize';

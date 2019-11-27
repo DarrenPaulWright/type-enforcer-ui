@@ -17,6 +17,7 @@
 		"docs:csssize": "jsdoc2md src/CssSize.js > docs/CssSize.md",
 		"docs:dockpoint": "jsdoc2md src/DockPoint.js > docs/DockPoint.md",
 		"docs:thickness": "jsdoc2md src/Thickness.js > docs/Thickness.md",
+		"docs:windowResize": "jsdoc2md src/windowResize.js > docs/windowResize.md",
 		"docs": "run-p \"docs:* -- -t docs/docs.hbs --plugin dmd-readable\""
 	},
 	"badges": [
@@ -75,6 +76,7 @@
 	},
 	"homepage": "https://github.com/DarrenPaulWright/type-enforcer-ui#readme",
 	"dependencies": {
+		"async-agent": "^0.4.3",
 		"object-agent": "^1.4.0",
 		"type-enforcer-math": "^1.0.0-beta.3"
 	},

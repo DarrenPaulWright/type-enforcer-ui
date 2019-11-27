@@ -19,7 +19,7 @@
 <br><a name="Docs"></a>
 
 ### Docs
-#### Extra Data Types- [CssSize](docs/CssSize.md)- [DockPoint](docs/DockPoint.md)- [Thickness](docs/Thickness.md)#### Type Checks- [checks](docs/checks.md)#### Type Enforcement- [enforce](docs/enforce.md)#### Type Enforcing Methods- [method](docs/method.md)
+#### Extra Data Types- [CssSize](docs/CssSize.md)- [DockPoint](docs/DockPoint.md)- [Thickness](docs/Thickness.md)#### Type Checks- [checks](docs/checks.md)#### Type Enforcement- [enforce](docs/enforce.md)#### Type Enforcing Methods- [method](docs/method.md)#### Also included:- [windowResize](docs/windowResize.md)
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
 [npm-url]: https://npmjs.com/package/type-enforcer-ui
