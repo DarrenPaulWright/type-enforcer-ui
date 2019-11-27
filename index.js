@@ -28,7 +28,7 @@
  * #### Also included:
  * - [windowResize](docs/windowResize.md)
  */
-export * from 'type-enforcer';
+export * from 'type-enforcer-math';
 
 export { default as is } from './src/checks/is';
 export { default as isCssSize } from './src/checks/isCssSize';
