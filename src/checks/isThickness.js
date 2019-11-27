@@ -1,3 +1,4 @@
+import { isPoint } from 'type-enforcer-math';
 import Thickness from '../Thickness';
 
 /**
@@ -25,6 +26,4 @@ import Thickness from '../Thickness';
  *
  * @returns {Boolean}
  */
-export default (value, coerce) => {
-	return (value instanceof Thickness) || (coerce === true && Thickness.isValid(value));
-};
+export default isPoint.extend(Thickness);

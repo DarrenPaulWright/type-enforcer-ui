@@ -1,3 +1,4 @@
+import { isPoint } from 'type-enforcer-math';
 import DockPoint from '../DockPoint';
 
 /**
@@ -25,6 +26,4 @@ import DockPoint from '../DockPoint';
  *
  * @returns {Boolean}
  */
-export default (value, coerce) => {
-	return (value instanceof DockPoint) || (coerce === true && DockPoint.isValid(value));
-};
+export default isPoint.extend(DockPoint);

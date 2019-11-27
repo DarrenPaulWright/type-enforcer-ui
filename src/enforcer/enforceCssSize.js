@@ -1,3 +1,4 @@
+import { enforceObject } from 'type-enforcer-math';
 import isCssSize from '../checks/isCssSize';
 import CssSize from '../CssSize';
 
@@ -27,14 +28,4 @@ import CssSize from '../CssSize';
  *
  * @returns {CssSize}
  */
-export default (value, alt, coerce) => {
-	if (isCssSize(value)) {
-		return value;
-	}
-
-	if (coerce === true && isCssSize(value, true)) {
-		return new CssSize(value);
-	}
-
-	return alt;
-};
+export default enforceObject.extend(isCssSize, (value) => new CssSize(value));

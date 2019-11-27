@@ -1,3 +1,4 @@
+import { isPoint } from 'type-enforcer-math';
 import CssSize from '../CssSize';
 
 /**
@@ -25,6 +26,4 @@ import CssSize from '../CssSize';
  *
  * @returns {Boolean}
  */
-export default (value, coerce) => {
-	return (value instanceof CssSize) || (coerce === true && CssSize.isValid(value));
-};
+export default isPoint.extend(CssSize);

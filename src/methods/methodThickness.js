@@ -1,5 +1,4 @@
-import { methodAny, sameValueZero } from 'type-enforcer';
-import isThickness from '../checks/isThickness';
+import { methodPoint } from 'type-enforcer-math';
 import enforceThickness from '../enforcer/enforceThickness';
 
 /**
@@ -16,19 +15,9 @@ import enforceThickness from '../enforcer/enforceThickness';
  *
  * @returns {Function}
  */
-export default methodAny.extend({
+export default methodPoint.extend({
+	init: undefined,
 	enforce: (newValue, oldValue, options) => {
 		return enforceThickness(newValue, oldValue, options.coerce);
-	},
-	compare: (newValue, oldValue) => {
-		if (isThickness(oldValue)) {
-			return !oldValue.isSame(newValue);
-		}
-		if (isThickness(newValue)) {
-			return !newValue.isSame(oldValue);
-		}
-
-		return !sameValueZero(newValue, oldValue);
-	},
-	coerce: true
+	}
 });

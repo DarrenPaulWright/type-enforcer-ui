@@ -24,7 +24,7 @@
         * [.isFixed](#CssSize+isFixed) ⇒ <code>boolean</code>
         * [.isPercent](#CssSize+isPercent) ⇒ <code>boolean</code>
         * [.set(size)](#CssSize+set) ⇒ <code>this</code>
-        * [.toPixels([isNumber])](#CssSize+toPixels) ⇒ <code>Number</code> \| <code>String</code>
+        * [.toPixels([getNumber])](#CssSize+toPixels) ⇒ <code>Number</code> \| <code>String</code>
         * [.isSame(size)](#CssSize+isSame) ⇒ <code>boolean</code>
         * [.toString()](#CssSize+toString) ⇒ <code>String</code>
         * [.element([element])](#CssSize+element) ⇒ <code>this</code> \| <code>Element</code>
@@ -86,13 +86,13 @@
 
 <br><a name="CssSize+toPixels"></a>
 
-#### cssSize.toPixels([isNumber]) ⇒ <code>Number</code> \| <code>String</code>
+#### cssSize.toPixels([getNumber]) ⇒ <code>Number</code> \| <code>String</code>
 > Get the pixel equivalent of the current value
 
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [isNumber] | <code>boolean</code> | <code>false</code> | If true then return a number, else a string with 'px' on the end. |
+| [getNumber] | <code>boolean</code> | <code>false</code> | If true then return a number, else a string with 'px' on the end. |
 
 
 <br><a name="CssSize+isSame"></a>

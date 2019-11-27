@@ -136,7 +136,6 @@ export const thicknessData = {
 	coerceFalse: difference(testValues, validThicknesses, validCssSizes, validIntegers, validFloats, validArrays)
 };
 
-testTypes.push(cssSizeData);
-testTypes.push(dockPointData);
-testTypes.push(elementData);
-testTypes.push(thicknessData);
+export const localTestTypes = [cssSizeData, dockPointData, elementData, thicknessData];
+
+localTestTypes.forEach((type) => testTypes.push(type));

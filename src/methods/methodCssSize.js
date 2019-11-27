@@ -1,5 +1,4 @@
-import { methodAny, sameValueZero } from 'type-enforcer';
-import isCssSize from '../checks/isCssSize';
+import { methodPoint } from 'type-enforcer-math';
 import enforceCssSize from '../enforcer/enforceCssSize';
 
 /**
@@ -16,19 +15,9 @@ import enforceCssSize from '../enforcer/enforceCssSize';
  *
  * @returns {Function}
  */
-export default methodAny.extend({
+export default methodPoint.extend({
+	init: undefined,
 	enforce: (newValue, oldValue, options) => {
 		return enforceCssSize(newValue, oldValue, options.coerce);
-	},
-	compare: (newValue, oldValue) => {
-		if (isCssSize(oldValue)) {
-			return !oldValue.isSame(newValue);
-		}
-		if (isCssSize(newValue)) {
-			return !newValue.isSame(oldValue);
-		}
-
-		return !sameValueZero(newValue, oldValue);
-	},
-	coerce: true
+	}
 });

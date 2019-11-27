@@ -1,4 +1,6 @@
+import { enforceObject } from 'type-enforcer-math';
 import isDockPoint from '../checks/isDockPoint';
+
 import DockPoint from '../DockPoint';
 
 /**
@@ -27,14 +29,4 @@ import DockPoint from '../DockPoint';
  *
  * @returns {DockPoint}
  */
-export default (value, alt, coerce) => {
-	if (isDockPoint(value)) {
-		return value;
-	}
-
-	if (coerce === true && isDockPoint(value, true)) {
-		return new DockPoint(value);
-	}
-
-	return alt;
-};
+export default enforceObject.extend(isDockPoint, (value) => new DockPoint(value));

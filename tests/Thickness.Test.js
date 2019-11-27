@@ -194,6 +194,24 @@ describe('Thickness', () => {
 			assert.equal(thickness.toString(), '3px');
 		});
 
+		it('should combine all sides into one if they are the same', () => {
+			const thickness = new Thickness(3, 3, 3, 4);
+
+			assert.equal(thickness.toString(), '3px 3px 3px 4px');
+		});
+
+		it('should combine all sides into one if they are the same', () => {
+			const thickness = new Thickness(3, 3, 4, 3);
+
+			assert.equal(thickness.toString(), '3px 3px 4px');
+		});
+
+		it('should combine all sides into one if they are the same', () => {
+			const thickness = new Thickness(3, 4, 3, 3);
+
+			assert.equal(thickness.toString(), '3px 4px 3px 3px');
+		});
+
 		it('should combine top/bottom and left/right if they are the same', () => {
 			const thickness = new Thickness(3, 5, 3, 5);
 

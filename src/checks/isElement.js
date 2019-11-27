@@ -16,4 +16,4 @@
  *
  * @returns {Boolean}
  */
-export default (value) => !!value && typeof value === 'object' && value.nodeType === 1;
+export default (value) => Boolean(value) && value.nodeType === 1;

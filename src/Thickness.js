@@ -1,10 +1,10 @@
-import { isString, PrivateVars } from 'type-enforcer';
+import { castArray, isString, PrivateVars } from 'type-enforcer';
 import CssSize from './CssSize';
 import methodElement from './methods/methodElement';
 
 const SEPARATOR = /[, ]+/;
 const SPACE = ' ';
-const splitArgs = (args) => (typeof args[0] === 'string' && SEPARATOR.test(args[0])) ? args[0].trim()
+const splitArgs = (args) => (args.length === 1 && isString(args[0])) ? args[0].trim()
 	.split(SEPARATOR) : args;
 
 const _ = new PrivateVars();
@@ -54,7 +54,9 @@ export default class Thickness {
 			left: new CssSize()
 		});
 
-		this.set.apply(this, args);
+		if (args.length !== 0) {
+			this.set.apply(this, args);
+		}
 	}
 
 	/**
@@ -71,34 +73,32 @@ export default class Thickness {
 	 * @returns {boolean}
 	 */
 	set() {
-		const self = this;
+		const _self = _(this);
 		const args = splitArgs(arguments);
 
 		const setValues = (top, right, bottom, left) => {
-			self.top = top;
-			self.right = right;
-			self.bottom = bottom;
-			self.left = left;
+			_self.top.set(top);
+			_self.right.set(right);
+			_self.bottom.set(bottom);
+			_self.left.set(left);
 		};
 
-		if (args.length && Thickness.isValid.apply(this, args)) {
+		if (Thickness.isValid.apply(null, args)) {
 			if (args[0] instanceof Thickness) {
 				setValues(args[0].top, args[0].right, args[0].bottom, args[0].left);
 			}
 			else {
-				switch (args.length) {
-					case 1:
-						setValues(args[0], args[0], args[0], args[0]);
-						break;
-					case 2:
-						setValues(args[0], args[1], args[0], args[1]);
-						break;
-					case 3:
-						setValues(args[0], args[1], args[2], args[1]);
-						break;
-					case 4:
-						setValues(args[0], args[1], args[2], args[3]);
-						break;
+				if (args.length === 1) {
+					setValues(args[0], args[0], args[0], args[0]);
+				}
+				else if (args.length === 2) {
+					setValues(args[0], args[1], args[0], args[1]);
+				}
+				else if (args.length === 3) {
+					setValues(args[0], args[1], args[2], args[1]);
+				}
+				else if (args.length === 4) {
+					setValues(args[0], args[1], args[2], args[3]);
 				}
 			}
 		}
@@ -116,25 +116,8 @@ export default class Thickness {
 	static isValid() {
 		const args = splitArgs(arguments);
 
-		if (args.length) {
-			if (args[0] instanceof Thickness) {
-				return true;
-			}
-			else {
-				let isValid = true;
-
-				Array.from(args).forEach((arg) => {
-					if (!CssSize.isValid(arg)) {
-						isValid = false;
-						return false;
-					}
-				});
-
-				return isValid;
-			}
-		}
-
-		return false;
+		return args[0] instanceof Thickness ||
+			args.length !== 0 && args.length < 5 && castArray(args).every(CssSize.isValid);
 	}
 
 	/**
@@ -212,6 +195,7 @@ export default class Thickness {
 	 */
 	get horizontal() {
 		const _self = _(this);
+
 		return _self.left.toPixels(true) + _self.right.toPixels(true);
 	}
 
@@ -226,6 +210,7 @@ export default class Thickness {
 	 */
 	get vertical() {
 		const _self = _(this);
+
 		return _self.top.toPixels(true) + _self.bottom.toPixels(true);
 	}
 
@@ -240,10 +225,14 @@ export default class Thickness {
 	 * @returns {Boolean}
 	 */
 	isSame(thickness) {
-		if (!Thickness.isValid(thickness)) {
-			return false;
-		}
-		return this.toString() === (isString(thickness) ? thickness : thickness.toString());
+		const _self = _(this);
+
+		return (thickness instanceof Thickness &&
+			_self.top.isSame(thickness.top) &&
+			_self.right.isSame(thickness.right) &&
+			_self.bottom.isSame(thickness.bottom) &&
+			_self.left.isSame(thickness.left)
+		) || Thickness.isValid(thickness) && this.toString() === thickness.toString();
 	}
 
 	/**
@@ -256,26 +245,22 @@ export default class Thickness {
 	 */
 	toString() {
 		const _self = _(this);
-		const topBottomSame = _self.top.isSame(_self.bottom);
-		const leftRightSame = _self.right.isSame(_self.left);
-		const topRightSame = _self.right.isSame(_self.top);
+		let output = '';
 
-		if (topBottomSame && leftRightSame && topRightSame) {
-			return _self.top.toPixels();
-		}
-		else if (topBottomSame && leftRightSame) {
-			return [_self.top.toPixels(), _self.right.toPixels()].join(SPACE);
-		}
-		else if (leftRightSame) {
-			return [_self.top.toPixels(), _self.right.toPixels(), _self.bottom.toPixels()].join(SPACE);
+		if (_self.right.isSame(_self.left) === false) {
+			output = SPACE + _self.left.toPixels();
 		}
 
-		return [_self.top.toPixels(),
-			_self.right.toPixels(),
-			_self.bottom.toPixels(),
-			_self.left.toPixels()].join(SPACE);
+		if (output !== '' || _self.top.isSame(_self.bottom) === false) {
+			output = SPACE + _self.bottom.toPixels() + output;
+		}
+
+		if (output !== '' || _self.right.isSame(_self.top) === false) {
+			output = SPACE + _self.right.toPixels() + output;
+		}
+
+		return _self.top.toPixels() + output;
 	}
-
 }
 
 Object.assign(Thickness.prototype, {
@@ -293,6 +278,7 @@ Object.assign(Thickness.prototype, {
 	element: methodElement({
 		set(element) {
 			const _self = _(this);
+
 			_self.top.element(element);
 			_self.right.element(element);
 			_self.bottom.element(element);

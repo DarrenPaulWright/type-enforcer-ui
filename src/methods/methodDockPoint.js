@@ -1,5 +1,4 @@
-import { methodAny, sameValueZero } from 'type-enforcer';
-import isDockPoint from '../checks/isDockPoint';
+import { methodPoint } from 'type-enforcer-math';
 import enforceDockPoint from '../enforcer/enforceDockPoint';
 
 /**
@@ -16,19 +15,9 @@ import enforceDockPoint from '../enforcer/enforceDockPoint';
  *
  * @returns {Function}
  */
-export default methodAny.extend({
+export default methodPoint.extend({
+	init: undefined,
 	enforce: (newValue, oldValue, options) => {
 		return enforceDockPoint(newValue, oldValue, options.coerce);
-	},
-	compare: (newValue, oldValue) => {
-		if (isDockPoint(oldValue)) {
-			return !oldValue.isSame(newValue);
-		}
-		if (isDockPoint(newValue)) {
-			return !newValue.isSame(oldValue);
-		}
-
-		return !sameValueZero(newValue, oldValue);
-	},
-	coerce: true
+	}
 });

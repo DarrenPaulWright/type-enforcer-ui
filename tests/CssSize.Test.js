@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { multiTest } from 'type-enforcer-test-helper';
 import { AUTO, CssSize, PIXELS } from '../index';
 import {
-	cssSizeData as data,
+	cssSizeData,
 	fixedCssUnits,
 	percentCssUnits,
 	unitlessCssSizes,
@@ -40,7 +40,7 @@ describe('CssSize', () => {
 
 		const testCallback = (value) => new CssSize(value).toString();
 		multiTest({
-			values: data.coerceTrue,
+			values: cssSizeData.coerceTrue,
 			filter(value) {
 				return !zeros.includes(value);
 			},
@@ -52,7 +52,7 @@ describe('CssSize', () => {
 			output: '0'
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			message(input) {
 				return `should NOT accept the value ${input} when instantiated`;
 			},
@@ -64,17 +64,17 @@ describe('CssSize', () => {
 	describe('.isValid', () => {
 		const testCallback = (value) => CssSize.isValid(value);
 		multiTest({
-			values: data.coerceTrue,
+			values: cssSizeData.coerceTrue,
 			test: testCallback,
 			assertion: 'isTrue'
 		});
 		multiTest({
-			values: data.true,
+			values: cssSizeData.true,
 			test: testCallback,
 			assertion: 'isTrue'
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			assertion: 'isFalse'
 		});
@@ -83,7 +83,7 @@ describe('CssSize', () => {
 	describe('.set', () => {
 		const testCallback = (value) => new CssSize().set(value).toString();
 		multiTest({
-			values: data.coerceTrue,
+			values: cssSizeData.coerceTrue,
 			filter(value) {
 				return !zeros.includes(value);
 			},
@@ -95,7 +95,7 @@ describe('CssSize', () => {
 			output: '0'
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			message(input) {
 				return `should NOT accept the value ${input}`;
 			},
@@ -116,7 +116,7 @@ describe('CssSize', () => {
 			outputKey: 'unit'
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			output: ''
 		});
@@ -134,7 +134,7 @@ describe('CssSize', () => {
 			outputKey: 'value'
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			output: 0
 		});
@@ -222,7 +222,7 @@ describe('CssSize', () => {
 	describe('.isAuto', () => {
 		const testCallback = (value) => new CssSize(value).isAuto;
 		multiTest({
-			values: data.coerceTrue,
+			values: cssSizeData.coerceTrue,
 			filter(value) {
 				return value === AUTO;
 			},
@@ -230,7 +230,7 @@ describe('CssSize', () => {
 			output: true
 		});
 		multiTest({
-			values: data.coerceTrue,
+			values: cssSizeData.coerceTrue,
 			filter(value) {
 				return value !== AUTO && !zeros.includes(value);
 			},
@@ -238,7 +238,7 @@ describe('CssSize', () => {
 			output: false
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			output: false
 		});
@@ -265,7 +265,7 @@ describe('CssSize', () => {
 			output: false
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			output: false
 		});
@@ -292,7 +292,7 @@ describe('CssSize', () => {
 			output: false
 		});
 		multiTest({
-			values: data.coerceFalse,
+			values: cssSizeData.coerceFalse,
 			test: testCallback,
 			output: false
 		});
@@ -334,7 +334,7 @@ describe('CssSize', () => {
 
 		multiTest({
 			values: validCssValuesShortList,
-			values2: data.coerceFalse.map((value) => {
+			values2: cssSizeData.coerceFalse.map((value) => {
 				return {
 					size: value
 				};

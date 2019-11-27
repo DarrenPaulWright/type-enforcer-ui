@@ -1,13 +1,15 @@
-import { Enum, methodEnum } from 'type-enforcer';
+import { firstInPath, tailInPath } from 'object-agent';
+import { enforceEnum, Enum, methodEnum, PrivateVars } from 'type-enforcer';
 
 const SEPARATOR = '.';
+const NONE = '';
 const BASIC_POINTS = new Enum({
 	TOP: 'top',
 	RIGHT: 'right',
 	BOTTOM: 'bottom',
 	LEFT: 'left',
 	CENTER: 'center',
-	NONE: ''
+	NONE: NONE
 });
 const POINTS = new Enum({
 	...BASIC_POINTS,
@@ -24,25 +26,23 @@ const POINTS = new Enum({
 	LEFT_CENTER: BASIC_POINTS.LEFT + SEPARATOR + BASIC_POINTS.CENTER,
 	LEFT_TOP: BASIC_POINTS.LEFT + SEPARATOR + BASIC_POINTS.TOP
 });
-const HORIZONTAL_POINTS = [BASIC_POINTS.LEFT, BASIC_POINTS.RIGHT];
-const VERTICAL_POINTS = [BASIC_POINTS.TOP, BASIC_POINTS.BOTTOM];
 
-const getOpposite = (direction) => {
-	switch (direction) {
-		case BASIC_POINTS.TOP:
-			return BASIC_POINTS.BOTTOM;
-		case BASIC_POINTS.RIGHT:
-			return BASIC_POINTS.LEFT;
-		case BASIC_POINTS.BOTTOM:
-			return BASIC_POINTS.TOP;
-		case BASIC_POINTS.LEFT:
-			return BASIC_POINTS.RIGHT;
-		case BASIC_POINTS.CENTER:
-			return BASIC_POINTS.CENTER;
-		default:
-			return BASIC_POINTS.NONE;
-	}
-};
+const HORIZONTAL_POINTS = {};
+HORIZONTAL_POINTS[POINTS.LEFT] = true;
+HORIZONTAL_POINTS[POINTS.RIGHT] = true;
+
+const VERTICAL_POINTS = {};
+VERTICAL_POINTS[POINTS.TOP] = true;
+VERTICAL_POINTS[POINTS.BOTTOM] = true;
+
+const OPPOSITES = {};
+OPPOSITES[POINTS.TOP] = POINTS.BOTTOM;
+OPPOSITES[POINTS.RIGHT] = POINTS.LEFT;
+OPPOSITES[POINTS.BOTTOM] = POINTS.TOP;
+OPPOSITES[POINTS.LEFT] = POINTS.RIGHT;
+OPPOSITES[POINTS.CENTER] = POINTS.CENTER;
+
+const _ = new PrivateVars();
 
 /**
  * Allows the designation of a specific point relative to an object.
@@ -57,7 +57,12 @@ const getOpposite = (direction) => {
  */
 export default class DockPoint {
 	constructor(value) {
-		this.value(value);
+		value = enforceEnum(value, POINTS, POINTS.NONE);
+
+		_.set(this, {
+			primary: firstInPath(value, SEPARATOR),
+			secondary: tailInPath(value, SEPARATOR)
+		});
 	}
 
 	/**
@@ -70,11 +75,7 @@ export default class DockPoint {
 	 * @returns {DockPoint}
 	 */
 	get opposite() {
-		let opposite = this.oppositePrimary;
-		if (this.secondary()) {
-			opposite += SEPARATOR + this.oppositeSecondary;
-		}
-		return new DockPoint(opposite);
+		return new DockPoint(this.oppositePrimary + (_(this).secondary ? SEPARATOR + this.oppositeSecondary : ''));
 	}
 
 	/**
@@ -87,7 +88,7 @@ export default class DockPoint {
 	 * @returns {String} DockPoint.BASIC_POINTS
 	 */
 	get oppositePrimary() {
-		return getOpposite(this.primary());
+		return OPPOSITES[_(this).primary] || POINTS.NONE;
 	}
 
 	/**
@@ -100,7 +101,7 @@ export default class DockPoint {
 	 * @returns {String} DockPoint.BASIC_POINTS
 	 */
 	get oppositeSecondary() {
-		return getOpposite(this.secondary());
+		return OPPOSITES[_(this).secondary] || POINTS.NONE;
 	}
 
 	/**
@@ -113,11 +114,7 @@ export default class DockPoint {
 	 * @returns {boolean}
 	 */
 	static isValid(value) {
-		if (value instanceof DockPoint) {
-			return true;
-		}
-
-		return DockPoint.POINTS.has(value);
+		return value instanceof DockPoint || POINTS.has(value);
 	}
 
 	/**
@@ -131,7 +128,7 @@ export default class DockPoint {
 	 * @returns {boolean}
 	 */
 	has(value) {
-		return this.primary() === value || this.secondary() === value;
+		return _(this).primary === value || _(this).secondary === value;
 	}
 
 	/**
@@ -141,11 +138,11 @@ export default class DockPoint {
 	 * @instance
 	 */
 	swapHorizontal() {
-		if (HORIZONTAL_POINTS.includes(this.primary())) {
-			this.primary(this.oppositePrimary);
+		if (HORIZONTAL_POINTS[_(this).primary]) {
+			_(this).primary = this.oppositePrimary;
 		}
 		else {
-			this.secondary(this.oppositeSecondary);
+			_(this).secondary = this.oppositeSecondary;
 		}
 	}
 
@@ -156,11 +153,11 @@ export default class DockPoint {
 	 * @instance
 	 */
 	swapVertical() {
-		if (VERTICAL_POINTS.includes(this.primary())) {
-			this.primary(this.oppositePrimary);
+		if (VERTICAL_POINTS[_(this).primary]) {
+			_(this).primary = this.oppositePrimary;
 		}
 		else {
-			this.secondary(this.oppositeSecondary);
+			_(this).secondary = this.oppositeSecondary;
 		}
 	}
 
@@ -175,7 +172,7 @@ export default class DockPoint {
 	 * @returns {boolean}
 	 */
 	isSame(dockPoint) {
-		return this.value() === (dockPoint instanceof DockPoint ? dockPoint.value() : dockPoint);
+		return dockPoint instanceof DockPoint && _(dockPoint).primary === _(this).primary && _(dockPoint).secondary === _(this).secondary || dockPoint === this.toString();
 	}
 
 	/**
@@ -187,7 +184,7 @@ export default class DockPoint {
 	 * @returns {String}
 	 */
 	toString() {
-		return this.value() + '';
+		return `${_(this).primary}${_(this).secondary !== POINTS.NONE ? SEPARATOR : ''}${_(this).secondary}`;
 	}
 }
 
@@ -219,8 +216,13 @@ Object.assign(DockPoint.prototype, {
 	 * @returns {this|String} DockPoint.BASIC_POINTS
 	 */
 	primary: methodEnum({
-		init: BASIC_POINTS.NONE,
-		enum: BASIC_POINTS
+		enum: BASIC_POINTS,
+		set(primary) {
+			_(this).primary = primary;
+		},
+		get() {
+			return _(this).primary;
+		}
 	}),
 	/**
 	 * The secondary value
@@ -234,8 +236,13 @@ Object.assign(DockPoint.prototype, {
 	 * @returns {this|String} DockPoint.BASIC_POINTS
 	 */
 	secondary: methodEnum({
-		init: BASIC_POINTS.NONE,
-		enum: BASIC_POINTS
+		enum: BASIC_POINTS,
+		set(secondary) {
+			_(this).secondary = secondary;
+		},
+		get() {
+			return _(this).secondary;
+		}
 	}),
 	/**
 	 * The full value
@@ -249,18 +256,13 @@ Object.assign(DockPoint.prototype, {
 	 * @returns {this|String} DockPoint.POINTS
 	 */
 	value: methodEnum({
-		enum: DockPoint.POINTS,
+		enum: POINTS,
 		set(value) {
-			value = value.split(SEPARATOR);
-			this.primary(value[0])
-				.secondary(value[1] || BASIC_POINTS.NONE);
+			_(this).primary = firstInPath(value, SEPARATOR);
+			_(this).secondary = tailInPath(value, SEPARATOR) || POINTS.NONE;
 		},
 		get() {
-			let value = this.primary();
-			if (this.secondary() !== BASIC_POINTS.NONE) {
-				value += SEPARATOR + this.secondary();
-			}
-			return value;
+			return this.toString();
 		}
 	})
 });

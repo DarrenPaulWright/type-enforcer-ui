@@ -1,3 +1,4 @@
+import { enforceObject } from 'type-enforcer-math';
 import isThickness from '../checks/isThickness';
 import Thickness from '../Thickness';
 
@@ -27,14 +28,4 @@ import Thickness from '../Thickness';
  *
  * @returns {Thickness}
  */
-export default (value, alt, coerce) => {
-	if (isThickness(value)) {
-		return value;
-	}
-
-	if (coerce === true && isThickness(value, true)) {
-		return new Thickness(value);
-	}
-
-	return alt;
-};
+export default enforceObject.extend(isThickness, (value) => new Thickness(value));

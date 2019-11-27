@@ -49,6 +49,7 @@ export { default as methodElement } from './src/methods/methodElement';
 export { default as methodThickness } from './src/methods/methodThickness';
 
 export * from './src/CssSize';
+export * from './src/utility/cssUnits';
 export { default as CssSize } from './src/CssSize';
 export { default as DockPoint } from './src/DockPoint';
 export { default as Thickness } from './src/Thickness';
