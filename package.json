@@ -1,6 +1,6 @@
 {
 	"name": "type-enforcer-ui",
-	"version": "1.0.0-beta.2",
+	"version": "1.0.0-beta.3",
 	"description": "An extension of type-enforcer with UI related data types and enforcer functions",
 	"main": "index.js",
 	"sideEffects": false,
@@ -67,7 +67,9 @@
 	"keywords": [
 		"type",
 		"enforce",
-		"method"
+		"method",
+		"UI",
+		"frontend"
 	],
 	"author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
 	"license": "MIT",
