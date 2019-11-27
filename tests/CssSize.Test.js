@@ -123,7 +123,9 @@ describe('CssSize', () => {
 	});
 
 	describe('.value', () => {
-		const testCallback = (value) => new CssSize(value).value;
+		const cssSize = new CssSize();
+		const testCallback = (value) => cssSize.set(value).value;
+
 		multiTest({
 			values: validCssValues,
 			filter(value) {
@@ -133,6 +135,7 @@ describe('CssSize', () => {
 			inputKey: 'size',
 			outputKey: 'value'
 		});
+
 		multiTest({
 			values: cssSizeData.coerceFalse,
 			test: testCallback,

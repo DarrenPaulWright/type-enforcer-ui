@@ -30,7 +30,6 @@ const fontBasedUnits = [EM, EX, CH];
 const pixelBasedUnits = [PIXELS, INCHES, CENTIMETERS, MILLIMETERS, PICAS, POINTS];
 const fixedUnits = pixelBasedUnits.concat(fontBasedUnits, viewPortUnits, ROOT_EM);
 
-// const NUMERIC_VALUE = '^[-+]?[0-9]*.?[0-9]+';
 const NUMERIC_VALUE = '^[0-9+-.E]+';
 const NUMERIC_REGEX = new RegExp(NUMERIC_VALUE);
 const CSS_SIZE_REGEX = new RegExp(NUMERIC_VALUE + '(' + fixedUnits.concat(PERCENT).join('|') + ')$');
@@ -110,11 +109,12 @@ export default class CssSize {
 	 * @returns {this}
 	 */
 	set(size) {
-		Object.assign(_(this) || _.set(this), _(size) || CssSize.isValid(size) && {
-			size: size + (isNonZeroNumber(size) ? PIXELS : ''),
-			pixelsValue: undefined
-		} || {
-			size: ZERO_PIXELS
+		Object.assign(_(this) || _.set(this), _(size) || {
+			size: CssSize.isValid(size) ? size + (isNonZeroNumber(size) ? PIXELS : '') : ZERO_PIXELS,
+			units: undefined,
+			value: undefined,
+			pixelsValue: undefined,
+			fontBasedUnits: {}
 		});
 
 		return this;
