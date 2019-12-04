@@ -38,7 +38,11 @@
 <br><a name="new_DockPoint_new"></a>
 
 #### new DockPoint([value])
-> Allows the designation of a specific point relative to an object.> > ``` javascript> import { DockPoint } from 'type-enforcer-ui';> ```
+> Allows the designation of a specific point relative to an object.
+> 
+> ``` javascript
+> import { DockPoint } from 'type-enforcer-ui';
+> ```
 
 
 | Param | Type | Default | Description |

@@ -35,7 +35,11 @@
 <br><a name="new_CssSize_new"></a>
 
 #### new CssSize([size])
-> A class for css sizes> > ``` javascript> import { CssSize } from 'type-enforcer-ui';> ```
+> A class for css sizes
+> 
+> ``` javascript
+> import { CssSize } from 'type-enforcer-ui';
+> ```
 
 
 | Param | Type | Default |
