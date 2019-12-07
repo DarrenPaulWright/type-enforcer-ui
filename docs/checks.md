@@ -14,14 +14,7 @@
 <br><a name="is"></a>
 
 ### is : <code>object</code>
-> Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
-> 
-> ``` javascript
-> import { is } from 'type-enforcer-ui';
-> 
-> // Or import individual functions
-> import { isBoolean, isString } from 'type-enforcer-ui';
-> ```
+> Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:> > ``` javascript> import { is } from 'type-enforcer-ui';> > // Or import individual functions> import { isBoolean, isString } from 'type-enforcer-ui';> ```
 
 
 * [is](#is) : <code>object</code>
@@ -45,18 +38,7 @@
 | [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a CssSize |
 
 **Example**  
-``` javascript
-import { isCssSize } from 'type-enforcer-ui';
-
-isCssSize(new CssSize());
-// => true
-
-isCssSize('14px');
-// => false
-
-isCssSize('14px', true);
-// => true
-```
+``` javascriptimport { isCssSize } from 'type-enforcer-ui';isCssSize(new CssSize());// => trueisCssSize('14px');// => falseisCssSize('14px', true);// => true```
 
 <br><a name="is.dockPoint"></a>
 
@@ -72,18 +54,7 @@ isCssSize('14px', true);
 | [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a DockPoint |
 
 **Example**  
-``` javascript
-import { isDockPoint } from 'type-enforcer-ui';
-
-isDockPoint(new DockPoint());
-// => true
-
-isDockPoint('top');
-// => false
-
-isDockPoint('top', true);
-// => true
-```
+``` javascriptimport { isDockPoint } from 'type-enforcer-ui';isDockPoint(new DockPoint());// => trueisDockPoint('top');// => falseisDockPoint('top', true);// => true```
 
 <br><a name="is.element"></a>
 
@@ -98,12 +69,7 @@ isDockPoint('top', true);
 | value | <code>\*</code> | 
 
 **Example**  
-``` javascript
-import { isElement } from 'type-enforcer-ui';
-
-isElement(document.createElement('div'));
-// => true
-```
+``` javascriptimport { isElement } from 'type-enforcer-ui';isElement(document.createElement('div'));// => true```
 
 <br><a name="is.thickness"></a>
 
@@ -119,18 +85,7 @@ isElement(document.createElement('div'));
 | [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a Thickness |
 
 **Example**  
-``` javascript
-import { isThickness } from 'type-enforcer-ui';
-
-isThickness(new Thickness());
-// => true
-
-isThickness('12px 20px');
-// => false
-
-isThickness('12px 20px', true);
-// => true
-```
+``` javascriptimport { isThickness } from 'type-enforcer-ui';isThickness(new Thickness());// => trueisThickness('12px 20px');// => falseisThickness('12px 20px', true);// => true```
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
 [npm-url]: https://npmjs.com/package/type-enforcer-ui
