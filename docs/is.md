@@ -13,9 +13,11 @@
 
 <br><a name="is"></a>
 
-### is : <code>object</code>
-> Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:> > ``` javascript> import { is } from 'type-enforcer-ui';> > // Or import individual functions> import { isBoolean, isString } from 'type-enforcer-ui';> ```
+## is : <code>object</code>
+> Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
+**Example**  
+``` javascriptimport { is } from 'type-enforcer-ui';// Or import individual functionsimport { isBoolean, isString } from 'type-enforcer-ui';```
 
 * [is](#is) : <code>object</code>
     * [.cssSize(value, [coerce])](#is.cssSize) ⇒ <code>Boolean</code>
@@ -26,7 +28,7 @@
 
 <br><a name="is.cssSize"></a>
 
-#### is.cssSize(value, [coerce]) ⇒ <code>Boolean</code>
+### is.cssSize(value, [coerce]) ⇒ <code>Boolean</code>
 > Check if a value is a [CssSize](docs/CssSize.md)
 
 **Alias:** `isCssSize`
@@ -42,7 +44,7 @@
 
 <br><a name="is.dockPoint"></a>
 
-#### is.dockPoint(value, [coerce]) ⇒ <code>Boolean</code>
+### is.dockPoint(value, [coerce]) ⇒ <code>Boolean</code>
 > Check if a value is a [DockPoint](docs/DockPoint.md)
 
 **Alias:** `isDockPoint`
@@ -58,7 +60,7 @@
 
 <br><a name="is.element"></a>
 
-#### is.element(value) ⇒ <code>Boolean</code>
+### is.element(value) ⇒ <code>Boolean</code>
 > Check if a value is a DOM element
 
 **Alias:** `isElement`
@@ -73,7 +75,7 @@
 
 <br><a name="is.thickness"></a>
 
-#### is.thickness(value, [coerce]) ⇒ <code>Boolean</code>
+### is.thickness(value, [coerce]) ⇒ <code>Boolean</code>
 > Check if a value is a [Thickness](docs/Thickness.md)
 
 **Alias:** `isThickness`

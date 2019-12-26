@@ -45,13 +45,12 @@ OPPOSITES[POINTS.CENTER] = POINTS.CENTER;
 const _ = new PrivateVars();
 
 /**
- * Allows the designation of a specific point relative to an object.
- *
+ * @class DockPoint
+ * @classdesc Allows the designation of a specific point relative to an object.
+ * @example
  * ``` javascript
  * import { DockPoint } from 'type-enforcer-ui';
  * ```
- *
- * @class DockPoint
  *
  * @arg {String} [value=DockPoint.POINTS.TOP_CENTER] - Anything from DockPoint.POINTS
  */

@@ -10,8 +10,8 @@ const splitArgs = (args) => (args.length === 1 && isString(args[0])) ? args[0].t
 const _ = new PrivateVars();
 
 /**
- * Replicates the functionality of css border-width, margin, and padding, or anything that requires top, right, bottom, and left css sizes.
- *
+ * @class Thickness
+ * @classdesc Replicates the functionality of css border-width, margin, and padding, or anything that requires top, right, bottom, and left css sizes.
  * @example
  * ``` javascript
  * import { Thickness } from 'type-enforcer-ui';
@@ -37,8 +37,6 @@ const _ = new PrivateVars();
  * console.log(thickness5.toString());
  * // => '20px 20px 5px'
  * ```
- *
- * @class Thickness
  *
  * @arg {String|Number|Array} [top] - If only one size is provided it gets applied to all sides. See examples for different arrangements of args.
  * @arg {String|Number} [right] - If two sizes are provided the first gets applied to top and bottom, the second size gets applied right and left

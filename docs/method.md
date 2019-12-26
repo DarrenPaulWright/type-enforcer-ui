@@ -13,11 +13,11 @@
 
 <br><a name="method"></a>
 
-### method : <code>object</code>
-> Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:> > ``` javascript> import { method } from 'type-enforcer-ui';> > // Or import individual functions> import { methodBoolean, methodString } from 'type-enforcer-ui';> ```
+## method : <code>object</code>
+> Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
 **Example**  
-``` javascript// Use it as a prototype:const Thing = function() {};Thing.prototype.myMethod = method.string([options]);// or in a class:class Thing() {}Thing.prototype.myMethod = method.string([options]);// or as a non-prototype method:const Thing = function() {    this.myMethod = method.string([options]);};```
+``` javascriptimport { method } from 'type-enforcer-ui';// Or import individual functionsimport { methodBoolean, methodString } from 'type-enforcer-ui';// Use it as a prototype:const Thing = function() {};Thing.prototype.myMethod = method.string([options]);// or in a class:class Thing() {}Thing.prototype.myMethod = method.string([options]);// or as a non-prototype method:const Thing = function() {    this.myMethod = method.string([options]);};```
 
 * [method](#method) : <code>object</code>
     * [.cssSize([options])](#method.cssSize) ⇒ <code>function</code>
@@ -28,7 +28,7 @@
 
 <br><a name="method.cssSize"></a>
 
-#### method.cssSize([options]) ⇒ <code>function</code>
+### method.cssSize([options]) ⇒ <code>function</code>
 > Builds a chainable method for getting/setting a [CssSize](docs/CssSize.md)
 
 **Alias:** `methodCssSize`
@@ -45,7 +45,7 @@
 
 <br><a name="method.dockPoint"></a>
 
-#### method.dockPoint([options]) ⇒ <code>function</code>
+### method.dockPoint([options]) ⇒ <code>function</code>
 > Builds a chainable method for getting/setting a [DockPoint](docs/DockPoint.md)
 
 **Alias:** `methodDockPoint`
@@ -62,7 +62,7 @@
 
 <br><a name="method.element"></a>
 
-#### method.element([options]) ⇒ <code>function</code>
+### method.element([options]) ⇒ <code>function</code>
 > Builds a chainable method for getting/setting a DOM element
 
 **Alias:** `methodElement`
@@ -77,7 +77,7 @@
 
 <br><a name="method.thickness"></a>
 
-#### method.thickness([options]) ⇒ <code>function</code>
+### method.thickness([options]) ⇒ <code>function</code>
 > Builds a chainable method for getting/setting a [Thickness](docs/Thickness.md)
 
 **Alias:** `methodThickness`

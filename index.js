@@ -1,34 +1,16 @@
 /**
  * @name Installation
+ * @private
  * @summary
  *
- * ```
- * npm install type-enforcer-ui
- * ```
  * _Requires Babel 7.2+_
  */
 
 /**
- * @name Docs
+ * @name About
+ * @private
  * @summary
- * type-enforcer-ui re-exports everything from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
- *
- * #### Extra Data Types
- * - [CssSize](docs/CssSize.md)
- * - [DockPoint](docs/DockPoint.md)
- * - [Thickness](docs/Thickness.md)
- *
- * #### Type Checks
- * - [checks](docs/checks.md)
- *
- * #### Type Enforcement
- * - [enforce](docs/enforce.md)
- *
- * #### Type Enforcing Methods
- * - [method](docs/method.md)
- *
- * #### Also included:
- * - [windowResize](docs/windowResize.md)
+ * type-enforcer-ui re-exports everything from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
  */
 export * from 'type-enforcer-math';
 

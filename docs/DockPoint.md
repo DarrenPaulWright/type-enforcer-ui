@@ -13,7 +13,9 @@
 
 <br><a name="DockPoint"></a>
 
-### DockPoint
+## DockPoint
+> Allows the designation of a specific point relative to an object.
+
 
 * [DockPoint](#DockPoint)
     * [new DockPoint([value])](#new_DockPoint_new)
@@ -37,25 +39,25 @@
 
 <br><a name="new_DockPoint_new"></a>
 
-#### new DockPoint([value])
-> Allows the designation of a specific point relative to an object.> > ``` javascript> import { DockPoint } from 'type-enforcer-ui';> ```
-
+### new DockPoint([value])
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [value] | <code>String</code> | <code>DockPoint.POINTS.TOP_CENTER</code> | Anything from DockPoint.POINTS |
 
+**Example**  
+``` javascriptimport { DockPoint } from 'type-enforcer-ui';```
 
 <br><a name="DockPoint+opposite"></a>
 
-#### dockPoint.opposite ⇒ [<code>DockPoint</code>](#DockPoint)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### dockPoint.opposite ⇒ [<code>DockPoint</code>](#DockPoint)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get a new DockPoint with the opposite value
 
 
 <br><a name="DockPoint+oppositePrimary"></a>
 
-#### dockPoint.oppositePrimary ⇒ <code>String</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### dockPoint.oppositePrimary ⇒ <code>String</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the opposite of the current primary
 
@@ -63,7 +65,7 @@
 
 <br><a name="DockPoint+oppositeSecondary"></a>
 
-#### dockPoint.oppositeSecondary ⇒ <code>String</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### dockPoint.oppositeSecondary ⇒ <code>String</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the opposite of the current secondary
 
@@ -71,7 +73,7 @@
 
 <br><a name="DockPoint+has"></a>
 
-#### dockPoint.has(value) ⇒ <code>boolean</code>
+### dockPoint.has(value) ⇒ <code>boolean</code>
 > Determine either the primary or secondary is equivalent to a value
 
 
@@ -82,19 +84,19 @@
 
 <br><a name="DockPoint+swapHorizontal"></a>
 
-#### dockPoint.swapHorizontal()
+### dockPoint.swapHorizontal()
 > Set the left or right value to the opposite, whether it's the primary or secondary
 
 
 <br><a name="DockPoint+swapVertical"></a>
 
-#### dockPoint.swapVertical()
+### dockPoint.swapVertical()
 > Set the top or bottom value to the opposite, whether it's the primary or secondary
 
 
 <br><a name="DockPoint+isSame"></a>
 
-#### dockPoint.isSame(dockPoint) ⇒ <code>boolean</code>
+### dockPoint.isSame(dockPoint) ⇒ <code>boolean</code>
 > Determine if another DockPoint is equivalent to this one
 
 
@@ -105,13 +107,13 @@
 
 <br><a name="DockPoint+toString"></a>
 
-#### dockPoint.toString() ⇒ <code>String</code>
+### dockPoint.toString() ⇒ <code>String</code>
 > Get the current value as a string
 
 
 <br><a name="DockPoint+primary"></a>
 
-#### dockPoint.primary([value]) ⇒ <code>this</code> \| <code>String</code>
+### dockPoint.primary([value]) ⇒ <code>this</code> \| <code>String</code>
 > The primary value
 
 **Returns**: <code>this</code> \| <code>String</code> - DockPoint.BASIC_POINTS  
@@ -123,7 +125,7 @@
 
 <br><a name="DockPoint+secondary"></a>
 
-#### dockPoint.secondary([value]) ⇒ <code>this</code> \| <code>String</code>
+### dockPoint.secondary([value]) ⇒ <code>this</code> \| <code>String</code>
 > The secondary value
 
 **Returns**: <code>this</code> \| <code>String</code> - DockPoint.BASIC_POINTS  
@@ -135,7 +137,7 @@
 
 <br><a name="DockPoint+value"></a>
 
-#### dockPoint.value([value]) ⇒ <code>this</code> \| <code>String</code>
+### dockPoint.value([value]) ⇒ <code>this</code> \| <code>String</code>
 > The full value
 
 **Returns**: <code>this</code> \| <code>String</code> - DockPoint.POINTS  
@@ -147,15 +149,15 @@
 
 <br><a name="DockPoint.BASIC_POINTS"></a>
 
-#### DockPoint.BASIC\_POINTS : <code>Enum</code>
+### DockPoint.BASIC\_POINTS : <code>Enum</code>
 
 <br><a name="DockPoint.POINTS"></a>
 
-#### DockPoint.POINTS : <code>Enum</code>
+### DockPoint.POINTS : <code>Enum</code>
 
 <br><a name="DockPoint.isValid"></a>
 
-#### DockPoint.isValid(value) ⇒ <code>boolean</code>
+### DockPoint.isValid(value) ⇒ <code>boolean</code>
 > Determine if something is a valid dock point
 
 

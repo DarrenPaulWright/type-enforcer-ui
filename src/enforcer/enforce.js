@@ -5,8 +5,9 @@ import enforceElement from './enforceElement';
 import enforceThickness from './enforceThickness';
 
 /**
- * Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
+ * Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
  *
+ * @example
  * ``` javascript
  * import { enforce } from 'type-enforcer-ui';
  *
@@ -14,7 +15,7 @@ import enforceThickness from './enforceThickness';
  * import { enforceBoolean, enforceString } from 'type-enforcer-ui';
  * ```
  *
- * @typedef {object} enforce
+ * @namespace enforce
  */
 export default {
 	...enforce,

@@ -10,36 +10,54 @@
 [![vulnerabilities][vulnerabilities]][vulnerabilities-url]
 [![license][license]][license-url]
 
-
 <br><a name="Installation"></a>
 
-### Installation
+## Installation
 ```
 npm install type-enforcer-ui
 ```
 _Requires Babel 7.2+_
 
-<br><a name="Docs"></a>
+<br><a name="About"></a>
 
-### Docs
-type-enforcer-ui re-exports everything from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
+## About
+type-enforcer-ui re-exports everything from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
-#### Extra Data Types
-- [CssSize](docs/CssSize.md)
-- [DockPoint](docs/DockPoint.md)
-- [Thickness](docs/Thickness.md)
 
-#### Type Checks
-- [checks](docs/checks.md)
+<br>
 
-#### Type Enforcement
-- [enforce](docs/enforce.md)
+## Objects
 
-#### Type Enforcing Methods
-- [method](docs/method.md)
+<dl>
+<dt><a href="docs/is.md">is</a> : <code>object</code></dt>
+<dd><p>Utility functions for checking if something is a particular data type. Includes all the checks from <a href="https://github.com/DarrenPaulWright/type-enforcer">type-enforcer</a> and <a href="https://github.com/DarrenPaulWright/type-enforcer-math">type-enforcer-math</a>.</p>
+</dd>
+<dt><a href="docs/enforce.md">enforce</a> : <code>object</code></dt>
+<dd><p>Utility functions for enforcing data types. Includes all the enforcers from <a href="https://github.com/DarrenPaulWright/type-enforcer">type-enforcer</a> and <a href="https://github.com/DarrenPaulWright/type-enforcer-math">type-enforcer-math</a>.</p>
+</dd>
+<dt><a href="docs/method.md">method</a> : <code>object</code></dt>
+<dd><p>Enforce data types and remove common boilerplate code on class methods. Includes all the methods from <a href="https://github.com/DarrenPaulWright/type-enforcer">type-enforcer</a> and <a href="https://github.com/DarrenPaulWright/type-enforcer-math">type-enforcer-math</a>.</p>
+</dd>
+</dl>
 
-#### Also included:
-- [windowResize](docs/windowResize.md)
+<br>
+
+## Classes
+
+<dl>
+<dt><a href="docs/CssSize.md">CssSize</a></dt>
+<dd><p>A class for handling css size conversions</p>
+</dd>
+<dt><a href="docs/DockPoint.md">DockPoint</a></dt>
+<dd><p>Allows the designation of a specific point relative to an object.</p>
+</dd>
+<dt><a href="docs/Thickness.md">Thickness</a></dt>
+<dd><p>Replicates the functionality of css border-width, margin, and padding, or anything that requires top, right, bottom, and left css sizes.</p>
+</dd>
+<dt><a href="docs/windowResize.md">windowResize</a> ⇐ <code>[Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)</code></dt>
+<dd><p>Executes callbacks whenever the screen is resized (throttled at 100ms) or explicitly triggered</p>
+</dd>
+</dl>
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
 [npm-url]: https://npmjs.com/package/type-enforcer-ui

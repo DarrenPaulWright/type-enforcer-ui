@@ -13,7 +13,7 @@
 
 <br><a name="windowResize"></a>
 
-### windowResize ⇐ <code>[Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)</code>
+## windowResize ⇐ <code>[Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)</code>
 > Executes callbacks whenever the screen is resized (throttled at 100ms) or explicitly triggered
 
 **Extends**: <code>[Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)</code>  
@@ -26,21 +26,21 @@
 
 <br><a name="windowResize+width"></a>
 
-#### windowResize.width ⇒ <code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### windowResize.width ⇒ <code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the current width of the window.
 
 
 <br><a name="windowResize+height"></a>
 
-#### windowResize.height ⇒ <code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### windowResize.height ⇒ <code>number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the current height of the window.
 
 
 <br><a name="windowResize+trigger"></a>
 
-#### windowResize.trigger([id])
+### windowResize.trigger([id])
 > Triggers one or all callbacks. Two arguments are passed to the callback: width and height. If an id is provided then the callback is called immediately, otherwise the call is debounced.
 
 

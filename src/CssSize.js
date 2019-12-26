@@ -63,13 +63,12 @@ windowResize.trigger(windowResize.add((width, height) => {
 const _ = new PrivateVars();
 
 /**
- * A class for css sizes
- *
+ * @class CssSize
+ * @classdesc A class for handling css size conversions
+ * @example
  * ``` javascript
  * import { CssSize } from 'type-enforcer-ui';
  * ```
- *
- * @class CssSize
  *
  * @arg {String} [size=0]
  */

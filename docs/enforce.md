@@ -13,9 +13,11 @@
 
 <br><a name="enforce"></a>
 
-### enforce : <code>object</code>
-> Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:> > ``` javascript> import { enforce } from 'type-enforcer-ui';> > // Or import individual functions> import { enforceBoolean, enforceString } from 'type-enforcer-ui';> ```
+## enforce : <code>object</code>
+> Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
+**Example**  
+``` javascriptimport { enforce } from 'type-enforcer-ui';// Or import individual functionsimport { enforceBoolean, enforceString } from 'type-enforcer-ui';```
 
 * [enforce](#enforce) : <code>object</code>
     * [.cssSize(value, alt, [coerce])](#enforce.cssSize) ⇒ <code>CssSize</code>
@@ -26,7 +28,7 @@
 
 <br><a name="enforce.cssSize"></a>
 
-#### enforce.cssSize(value, alt, [coerce]) ⇒ <code>CssSize</code>
+### enforce.cssSize(value, alt, [coerce]) ⇒ <code>CssSize</code>
 > Enforce that a value is a [CssSize](docs/CssSize.md). Uses [isCssSize](docs/checks.md#isCssSize).
 
 **Alias:** `enforceCssSize`
@@ -43,7 +45,7 @@
 
 <br><a name="enforce.dockPoint"></a>
 
-#### enforce.dockPoint(value, alt, [coerce]) ⇒ <code>DockPoint</code>
+### enforce.dockPoint(value, alt, [coerce]) ⇒ <code>DockPoint</code>
 > Enforce that a value is a [DockPoint](docs/DockPoint.md). Uses [isDockPoint](docs/checks.md#isDockPoint).
 
 **Alias:** `enforceDockPoint`
@@ -60,7 +62,7 @@
 
 <br><a name="enforce.element"></a>
 
-#### enforce.element(value, alt) ⇒ <code>Element</code>
+### enforce.element(value, alt) ⇒ <code>Element</code>
 > Enforce that a value is a DOM element. Uses [isElement](docs/checks.md#isElement).
 
 **Alias:** `enforceElement`
@@ -76,7 +78,7 @@
 
 <br><a name="enforce.thickness"></a>
 
-#### enforce.thickness(value, alt, [coerce]) ⇒ <code>Thickness</code>
+### enforce.thickness(value, alt, [coerce]) ⇒ <code>Thickness</code>
 > Enforce that a value is a [Thickness](docs/Thickness.md). Uses [isThickness](docs/checks.md#isThickness).
 
 **Alias:** `enforceThickness`

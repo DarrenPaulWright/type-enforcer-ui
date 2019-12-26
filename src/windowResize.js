@@ -6,10 +6,10 @@ let windowHeight = 0;
 let triggerAll;
 
 /**
- * Executes callbacks whenever the screen is resized (throttled at 100ms) or explicitly triggered
- *
+ * @class windowResize
  * @extends [Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)
  * @hideconstructor
+ * @classdesc Executes callbacks whenever the screen is resized (throttled at 100ms) or explicitly triggered
  */
 class windowResize extends Queue {
 	constructor() {

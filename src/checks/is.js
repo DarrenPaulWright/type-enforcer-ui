@@ -5,8 +5,9 @@ import isElement from './isElement';
 import isThickness from './isThickness';
 
 /**
- * Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
+ * Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
  *
+ * @example
  * ``` javascript
  * import { is } from 'type-enforcer-ui';
  *
@@ -14,7 +15,7 @@ import isThickness from './isThickness';
  * import { isBoolean, isString } from 'type-enforcer-ui';
  * ```
  *
- * @typedef {object} is
+ * @namespace is
  */
 export default {
 	...is,

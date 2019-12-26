@@ -13,7 +13,9 @@
 
 <br><a name="CssSize"></a>
 
-### CssSize
+## CssSize
+> A class for handling css size conversions
+
 
 * [CssSize](#CssSize)
     * [new CssSize([size])](#new_CssSize_new)
@@ -34,48 +36,48 @@
 
 <br><a name="new_CssSize_new"></a>
 
-#### new CssSize([size])
-> A class for css sizes> > ``` javascript> import { CssSize } from 'type-enforcer-ui';> ```
-
+### new CssSize([size])
 
 | Param | Type | Default |
 | --- | --- | --- |
 | [size] | <code>String</code> | <code>0</code> | 
 
+**Example**  
+``` javascriptimport { CssSize } from 'type-enforcer-ui';```
 
 <br><a name="CssSize+units"></a>
 
-#### cssSize.units ⇒ <code>String</code>
+### cssSize.units ⇒ <code>String</code>
 > Get the units portion of the current value
 
 
 <br><a name="CssSize+value"></a>
 
-#### cssSize.value ⇒ <code>Number</code>
+### cssSize.value ⇒ <code>Number</code>
 > Get the numeric portion of the current value
 
 
 <br><a name="CssSize+isAuto"></a>
 
-#### cssSize.isAuto ⇒ <code>boolean</code>
+### cssSize.isAuto ⇒ <code>boolean</code>
 > Determine if the current value is 'auto'
 
 
 <br><a name="CssSize+isFixed"></a>
 
-#### cssSize.isFixed ⇒ <code>boolean</code>
+### cssSize.isFixed ⇒ <code>boolean</code>
 > Determine if the current value is a fixed size
 
 
 <br><a name="CssSize+isPercent"></a>
 
-#### cssSize.isPercent ⇒ <code>boolean</code>
+### cssSize.isPercent ⇒ <code>boolean</code>
 > Determine if the current value is a percent size
 
 
 <br><a name="CssSize+set"></a>
 
-#### cssSize.set(size) ⇒ <code>this</code>
+### cssSize.set(size) ⇒ <code>this</code>
 > Set the value
 
 
@@ -86,7 +88,7 @@
 
 <br><a name="CssSize+toPixels"></a>
 
-#### cssSize.toPixels([getNumber]) ⇒ <code>Number</code> \| <code>String</code>
+### cssSize.toPixels([getNumber]) ⇒ <code>Number</code> \| <code>String</code>
 > Get the pixel equivalent of the current value
 
 
@@ -97,7 +99,7 @@
 
 <br><a name="CssSize+isSame"></a>
 
-#### cssSize.isSame(size) ⇒ <code>boolean</code>
+### cssSize.isSame(size) ⇒ <code>boolean</code>
 > Determine if another size is equivalent to this one
 
 
@@ -108,13 +110,13 @@
 
 <br><a name="CssSize+toString"></a>
 
-#### cssSize.toString() ⇒ <code>String</code>
+### cssSize.toString() ⇒ <code>String</code>
 > Get the current value as a string
 
 
 <br><a name="CssSize+element"></a>
 
-#### cssSize.element([element]) ⇒ <code>this</code> \| <code>Element</code>
+### cssSize.element([element]) ⇒ <code>this</code> \| <code>Element</code>
 > Set the element to measure font based units against
 
 
@@ -125,7 +127,7 @@
 
 <br><a name="CssSize.isValid"></a>
 
-#### CssSize.isValid(value) ⇒ <code>boolean</code>
+### CssSize.isValid(value) ⇒ <code>boolean</code>
 > Determine if something is a valid css size
 
 

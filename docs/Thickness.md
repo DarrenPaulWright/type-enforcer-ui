@@ -13,7 +13,9 @@
 
 <br><a name="Thickness"></a>
 
-### Thickness
+## Thickness
+> Replicates the functionality of css border-width, margin, and padding, or anything that requires top, right, bottom, and left css sizes.
+
 
 * [Thickness](#Thickness)
     * [new Thickness([top], [right], [bottom], [left])](#new_Thickness_new)
@@ -34,9 +36,7 @@
 
 <br><a name="new_Thickness_new"></a>
 
-#### new Thickness([top], [right], [bottom], [left])
-> Replicates the functionality of css border-width, margin, and padding, or anything that requires top, right, bottom, and left css sizes.
-
+### new Thickness([top], [right], [bottom], [left])
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -50,45 +50,45 @@
 
 <br><a name="Thickness+top"></a>
 
-#### thickness.top : <code>CssSize</code>
+### thickness.top : <code>CssSize</code>
 > The top size
 
 
 <br><a name="Thickness+right"></a>
 
-#### thickness.right : <code>CssSize</code>
+### thickness.right : <code>CssSize</code>
 > The right size
 
 
 <br><a name="Thickness+bottom"></a>
 
-#### thickness.bottom : <code>CssSize</code>
+### thickness.bottom : <code>CssSize</code>
 > The bottom size
 
 
 <br><a name="Thickness+left"></a>
 
-#### thickness.left : <code>CssSize</code>
+### thickness.left : <code>CssSize</code>
 > The left size
 
 
 <br><a name="Thickness+horizontal"></a>
 
-#### thickness.horizontal : <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### thickness.horizontal : <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the sum of the right and left
 
 
 <br><a name="Thickness+vertical"></a>
 
-#### thickness.vertical : <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
+### thickness.vertical : <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > Get the sum of the top and bottom
 
 
 <br><a name="Thickness+set"></a>
 
-#### thickness.set([top], [right], [bottom], [left]) ⇒ <code>boolean</code>
+### thickness.set([top], [right], [bottom], [left]) ⇒ <code>boolean</code>
 > Set the sizes of all sides
 
 
@@ -102,7 +102,7 @@
 
 <br><a name="Thickness+isSame"></a>
 
-#### thickness.isSame(thickness) ⇒ <code>Boolean</code>
+### thickness.isSame(thickness) ⇒ <code>Boolean</code>
 > Determine if another thickness is the same as this one
 
 
@@ -113,13 +113,13 @@
 
 <br><a name="Thickness+toString"></a>
 
-#### thickness.toString() ⇒ <code>String</code>
+### thickness.toString() ⇒ <code>String</code>
 > Get this thickness as a space separated string
 
 
 <br><a name="Thickness+element"></a>
 
-#### thickness.element([element]) ⇒ <code>this</code> \| <code>Element</code>
+### thickness.element([element]) ⇒ <code>this</code> \| <code>Element</code>
 > Set the element to measure font based units against
 
 
@@ -130,7 +130,7 @@
 
 <br><a name="Thickness.isValid"></a>
 
-#### Thickness.isValid(value) ⇒ <code>boolean</code>
+### Thickness.isValid(value) ⇒ <code>boolean</code>
 > Determine if something is a valid Thickness
 
 

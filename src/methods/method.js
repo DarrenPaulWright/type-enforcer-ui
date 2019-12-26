@@ -5,17 +5,15 @@ import methodElement from './methodElement';
 import methodThickness from './methodThickness';
 
 /**
- * Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math), along with:
+ * Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
  *
+ * @example
  * ``` javascript
  * import { method } from 'type-enforcer-ui';
  *
  * // Or import individual functions
  * import { methodBoolean, methodString } from 'type-enforcer-ui';
- * ```
  *
- * @example
- * ``` javascript
  * // Use it as a prototype:
  * const Thing = function() {};
  *
@@ -34,7 +32,7 @@ import methodThickness from './methodThickness';
  * };
  * ```
  *
- * @typedef {object} method
+ * @namespace method
  */
 export default {
 	...method,
