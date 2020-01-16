@@ -22,7 +22,7 @@ import {
 	VIEWPORT_MIN,
 	VIEWPORT_WIDTH,
 	ZERO_PIXELS
-} from '../index';
+} from '../index.js';
 
 export const validCssSizes = [new CssSize('14px'), new CssSize('20px')];
 export const validDockPoints = [new DockPoint(DockPoint.POINTS.TOP_CENTER),

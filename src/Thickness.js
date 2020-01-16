@@ -1,6 +1,6 @@
 import { castArray, isString, PrivateVars } from 'type-enforcer';
-import CssSize from './CssSize';
-import methodElement from './methods/methodElement';
+import CssSize from './CssSize.js';
+import methodElement from './methods/methodElement.js';
 
 const SEPARATOR = /[, ]+/;
 const SPACE = ' ';

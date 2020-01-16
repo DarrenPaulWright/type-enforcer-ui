@@ -1,5 +1,5 @@
 import { benchSettings } from 'karma-webpack-bundle';
-import { Thickness } from '../index';
+import { Thickness } from '../index.js';
 
 suite('Thickness', () => {
 	let sandbox;

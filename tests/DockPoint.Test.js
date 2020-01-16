@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { multiTest } from 'type-enforcer-test-helper';
-import { DockPoint } from '../index';
-import { dockPointData as data } from './testValues';
+import { DockPoint } from '../index.js';
+import { dockPointData as data } from './testValues.js';
 
 describe('DockPoint', () => {
 	describe('.primary', () => {

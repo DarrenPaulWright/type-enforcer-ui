@@ -8,8 +8,8 @@ import {
 	methodElement,
 	methodThickness,
 	Thickness
-} from '../index';
-import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues';
+} from '../index.js';
+import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues.js';
 
 describe('method', () => {
 	describe('.cssSize', () => {

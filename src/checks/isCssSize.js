@@ -1,5 +1,5 @@
 import { isPoint } from 'type-enforcer-math';
-import CssSize from '../CssSize';
+import CssSize from '../CssSize.js';
 
 /**
  * Check if a value is a [CssSize](docs/CssSize.md)

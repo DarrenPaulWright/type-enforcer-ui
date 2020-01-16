@@ -1,5 +1,5 @@
 import { isFloat, isNumber, isString, PrivateVars } from 'type-enforcer';
-import methodElement from './methods/methodElement';
+import methodElement from './methods/methodElement.js';
 import {
 	AUTO,
 	CENTIMETERS,
@@ -20,10 +20,10 @@ import {
 	VIEWPORT_MIN,
 	VIEWPORT_WIDTH,
 	ZERO_PIXELS
-} from './utility/cssUnits';
-import isNonZeroNumber from './utility/isNonZeroNumber';
-import measureCssUnits from './utility/measureCssUnits';
-import windowResize from './windowResize';
+} from './utility/cssUnits.js';
+import isNonZeroNumber from './utility/isNonZeroNumber.js';
+import measureCssUnits from './utility/measureCssUnits.js';
+import windowResize from './windowResize.js';
 
 const viewPortUnits = [VIEWPORT_HEIGHT, VIEWPORT_WIDTH, VIEWPORT_MIN];
 const fontBasedUnits = [EM, EX, CH];

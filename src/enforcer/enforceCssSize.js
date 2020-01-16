@@ -1,6 +1,6 @@
 import { enforceObject } from 'type-enforcer-math';
-import isCssSize from '../checks/isCssSize';
-import CssSize from '../CssSize';
+import isCssSize from '../checks/isCssSize.js';
+import CssSize from '../CssSize.js';
 
 /**
  * Enforce that a value is a [CssSize](docs/CssSize.md). Uses [isCssSize](docs/checks.md#isCssSize).

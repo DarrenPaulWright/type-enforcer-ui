@@ -1,5 +1,5 @@
 import { methodPoint } from 'type-enforcer-math';
-import enforceThickness from '../enforcer/enforceThickness';
+import enforceThickness from '../enforcer/enforceThickness.js';
 
 /**
  * Builds a chainable method for getting/setting a [Thickness](docs/Thickness.md)

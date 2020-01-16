@@ -1,6 +1,6 @@
 import { wait } from 'async-agent';
 import { assert } from 'chai';
-import { windowResize } from '../';
+import { windowResize } from '../index.js';
 
 describe('windowResize', () => {
 	const windowWidth = window.innerWidth;

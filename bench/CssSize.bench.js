@@ -1,5 +1,5 @@
 import { benchSettings } from 'karma-webpack-bundle';
-import { CssSize } from '../index';
+import { CssSize } from '../index.js';
 
 suite('CssSize', () => {
 	let sandbox;

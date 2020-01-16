@@ -1,5 +1,5 @@
 import { methodPoint } from 'type-enforcer-math';
-import enforceCssSize from '../enforcer/enforceCssSize';
+import enforceCssSize from '../enforcer/enforceCssSize.js';
 
 /**
  * Builds a chainable method for getting/setting a [CssSize](docs/CssSize.md)

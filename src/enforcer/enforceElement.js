@@ -1,4 +1,4 @@
-import isElement from '../checks/isElement';
+import isElement from '../checks/isElement.js';
 
 /**
  * Enforce that a value is a DOM element. Uses [isElement](docs/checks.md#isElement).

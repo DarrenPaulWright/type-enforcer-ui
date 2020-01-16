@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import isElementInDom from '../src/utility/isElementInDom';
+import isElementInDom from '../src/utility/isElementInDom.js';
 
 describe('isElementInDom', () => {
 	it('should return false for nothing', () => {

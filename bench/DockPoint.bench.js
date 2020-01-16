@@ -1,5 +1,5 @@
 import { benchSettings } from 'karma-webpack-bundle';
-import { DockPoint } from '../index';
+import { DockPoint } from '../index.js';
 
 suite('DockPoint', () => {
 	let sandbox;

@@ -1,5 +1,5 @@
 import { isPoint } from 'type-enforcer-math';
-import DockPoint from '../DockPoint';
+import DockPoint from '../DockPoint.js';
 
 /**
  * Check if a value is a [DockPoint](docs/DockPoint.md)

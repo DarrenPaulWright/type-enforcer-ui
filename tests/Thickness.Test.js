@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { multiTest } from 'type-enforcer-test-helper';
-import { Thickness } from '../index';
-import { thicknessData as data } from './testValues';
+import { Thickness } from '../index.js';
+import { thicknessData as data } from './testValues.js';
 
 describe('Thickness', () => {
 	describe('init', () => {

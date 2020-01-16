@@ -1,4 +1,4 @@
-import isElementInDom from './isElementInDom';
+import isElementInDom from './isElementInDom.js';
 
 export default (units, save, element) => {
 	const isAttached = Boolean(element) && isElementInDom(element);

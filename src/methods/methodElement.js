@@ -1,5 +1,5 @@
 import { methodAny } from 'type-enforcer';
-import enforceElement from '../enforcer/enforceElement';
+import enforceElement from '../enforcer/enforceElement.js';
 
 /**
  * Builds a chainable method for getting/setting a DOM element

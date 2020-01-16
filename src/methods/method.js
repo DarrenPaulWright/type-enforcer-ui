@@ -1,8 +1,8 @@
 import { method } from 'type-enforcer-math';
-import methodCssSize from './methodCssSize';
-import methodDockPoint from './methodDockPoint';
-import methodElement from './methodElement';
-import methodThickness from './methodThickness';
+import methodCssSize from './methodCssSize.js';
+import methodDockPoint from './methodDockPoint.js';
+import methodElement from './methodElement.js';
+import methodThickness from './methodThickness.js';
 
 /**
  * Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).

@@ -1,6 +1,6 @@
 import { enforceObject } from 'type-enforcer-math';
-import isThickness from '../checks/isThickness';
-import Thickness from '../Thickness';
+import isThickness from '../checks/isThickness.js';
+import Thickness from '../Thickness.js';
 
 /**
  * Enforce that a value is a [Thickness](docs/Thickness.md). Uses [isThickness](docs/checks.md#isThickness).

@@ -12,8 +12,8 @@ import {
 	VIEWPORT_HEIGHT,
 	VIEWPORT_MIN,
 	VIEWPORT_WIDTH
-} from '../src/utility/cssUnits';
-import measureCssUnits from '../src/utility/measureCssUnits';
+} from '../src/utility/cssUnits.js';
+import measureCssUnits from '../src/utility/measureCssUnits.js';
 
 suite('measureCssUnits', () => {
 	let sandbox;

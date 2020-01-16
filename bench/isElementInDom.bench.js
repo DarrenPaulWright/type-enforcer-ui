@@ -1,5 +1,5 @@
 import { benchSettings } from 'karma-webpack-bundle';
-import isElementInDom from '../src/utility/isElementInDom';
+import isElementInDom from '../src/utility/isElementInDom.js';
 
 suite('isElementInDom', () => {
 	let sandbox;

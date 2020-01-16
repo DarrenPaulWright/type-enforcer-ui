@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { multiTest } from 'type-enforcer-test-helper';
-import { AUTO, CssSize, PIXELS } from '../index';
+import { AUTO, CssSize, PIXELS } from '../index.js';
 import {
 	cssSizeData,
 	fixedCssUnits,
@@ -8,7 +8,7 @@ import {
 	unitlessCssSizes,
 	validCssValues,
 	validCssValuesShortList
-} from './testValues';
+} from './testValues.js';
 
 const zeros = [0, '0'];
 

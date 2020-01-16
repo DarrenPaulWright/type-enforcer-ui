@@ -1,8 +1,8 @@
 import { enforce } from 'type-enforcer-math';
-import enforceCssSize from './enforceCssSize';
-import enforceDockPoint from './enforceDockPoint';
-import enforceElement from './enforceElement';
-import enforceThickness from './enforceThickness';
+import enforceCssSize from './enforceCssSize.js';
+import enforceDockPoint from './enforceDockPoint.js';
+import enforceElement from './enforceElement.js';
+import enforceThickness from './enforceThickness.js';
 
 /**
  * Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).

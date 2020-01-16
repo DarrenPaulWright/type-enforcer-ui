@@ -1,5 +1,5 @@
 import { isPoint } from 'type-enforcer-math';
-import Thickness from '../Thickness';
+import Thickness from '../Thickness.js';
 
 /**
  * Check if a value is a [Thickness](docs/Thickness.md)

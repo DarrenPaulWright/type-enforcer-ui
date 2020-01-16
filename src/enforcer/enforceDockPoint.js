@@ -1,7 +1,7 @@
 import { enforceObject } from 'type-enforcer-math';
-import isDockPoint from '../checks/isDockPoint';
+import isDockPoint from '../checks/isDockPoint.js';
 
-import DockPoint from '../DockPoint';
+import DockPoint from '../DockPoint.js';
 
 /**
  * Enforce that a value is a [DockPoint](docs/DockPoint.md). Uses [isDockPoint](docs/checks.md#isDockPoint).

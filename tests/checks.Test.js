@@ -1,6 +1,6 @@
 import { testCheck } from 'type-enforcer-test-helper';
-import { is, isCssSize, isDockPoint, isElement, isThickness } from '../index';
-import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues';
+import { is, isCssSize, isDockPoint, isElement, isThickness } from '../index.js';
+import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues.js';
 
 describe('checks', () => {
 	describe('isCssSize', () => {

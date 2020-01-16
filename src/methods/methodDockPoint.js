@@ -1,5 +1,5 @@
 import { methodPoint } from 'type-enforcer-math';
-import enforceDockPoint from '../enforcer/enforceDockPoint';
+import enforceDockPoint from '../enforcer/enforceDockPoint.js';
 
 /**
  * Builds a chainable method for getting/setting a [DockPoint](docs/DockPoint.md)
