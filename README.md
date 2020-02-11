@@ -1,5 +1,8 @@
 # Type Enforcer Ui
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/DarrenPaulWright/type-enforcer-ui.svg)](https://greenkeeper.io/)
+
+
 > An extension of type-enforcer with UI related data types and enforcer functions
 >
 > [![npm][npm]][npm-url]
