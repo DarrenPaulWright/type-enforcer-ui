@@ -1,4 +1,4 @@
-import { difference, testTypes, testValues, validArrays, validFloats, validIntegers } from 'type-enforcer-test-helper';
+import { testTypes, testValues, validArrays, validFloats, validIntegers } from 'type-enforcer-test-helper';
 import {
 	AUTO,
 	CENTIMETERS,
@@ -23,6 +23,11 @@ import {
 	VIEWPORT_WIDTH,
 	ZERO_PIXELS
 } from '../index.js';
+
+const difference = (array1, ...args) => {
+	let diffArrays = [].concat(...args);
+	return array1.filter((item) => !diffArrays.includes(item));
+};
 
 export const validCssSizes = [new CssSize('14px'), new CssSize('20px')];
 export const validDockPoints = [new DockPoint(DockPoint.POINTS.TOP_CENTER),
@@ -72,17 +77,17 @@ const cssUnits = percentCssUnits.concat(fixedCssUnits);
 
 const positiveUnits = cssUnits.map((unit) => ({
 	size: '47.3' + unit,
-	value: '47.3',
+	value: 47.3,
 	unit: unit || PIXELS
 }));
 const negativeUnits = cssUnits.map((unit) => ({
 	size: '-327.2' + unit,
-	value: '-327.2',
+	value: -327.2,
 	unit: unit || PIXELS
 }));
 const notationUnits = cssUnits.map((unit) => ({
 	size: '1E2' + unit,
-	value: '1E2',
+	value: 100,
 	unit: unit || PIXELS
 }));
 
