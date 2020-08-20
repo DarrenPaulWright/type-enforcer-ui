@@ -1,6 +1,6 @@
 {
 	"name": "type-enforcer-ui",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "An extension of type-enforcer with UI related data types and enforcer functions",
 	"type": "module",
 	"keywords": [
