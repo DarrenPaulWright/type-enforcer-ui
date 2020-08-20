@@ -55,8 +55,8 @@
 [build-url]: https://travis-ci.org/DarrenPaulWright/type-enforcer-ui
 [coverage]: https://coveralls.io/repos/github/DarrenPaulWright/type-enforcer-ui/badge.svg?branch&#x3D;master
 [coverage-url]: https://coveralls.io/github/DarrenPaulWright/type-enforcer-ui?branch&#x3D;master
-[deps]: https://david-dm.org/darrenpaulwright/type-enforcer-ui.svg
-[deps-url]: https://david-dm.org/darrenpaulwright/type-enforcer-ui
+[deps]: https://david-dm.org/DarrenPaulWright/type-enforcer-ui.svg
+[deps-url]: https://david-dm.org/DarrenPaulWright/type-enforcer-ui
 [size]: https://packagephobia.now.sh/badge?p&#x3D;type-enforcer-ui
 [size-url]: https://packagephobia.now.sh/result?p&#x3D;type-enforcer-ui
 [vulnerabilities]: https://snyk.io/test/github/DarrenPaulWright/type-enforcer-ui/badge.svg?targetFile&#x3D;package.json
