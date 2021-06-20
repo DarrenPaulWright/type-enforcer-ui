@@ -17,7 +17,29 @@
 > Enforce data types and remove common boilerplate code on class methods. Includes all the methods from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
 **Example**  
-``` javascriptimport { method } from 'type-enforcer-ui';// Or import individual functionsimport { methodBoolean, methodString } from 'type-enforcer-ui';// Use it as a prototype:const Thing = function() {};Thing.prototype.myMethod = method.string([options]);// or in a class:class Thing() {}Thing.prototype.myMethod = method.string([options]);// or as a non-prototype method:const Thing = function() {    this.myMethod = method.string([options]);};```
+``` javascript
+import { method } from 'type-enforcer-ui';
+
+// Or import individual functions
+import { methodBoolean, methodString } from 'type-enforcer-ui';
+
+// Use it as a prototype:
+const Thing = function() {};
+
+Thing.prototype.myMethod = method.string([options]);
+
+
+// or in a class:
+class Thing() {}
+
+Thing.prototype.myMethod = method.string([options]);
+
+
+// or as a non-prototype method:
+const Thing = function() {
+    this.myMethod = method.string([options]);
+};
+```
 
 * [method](#method) : <code>object</code>
     * [.cssSize([options])](#method.cssSize) ⇒ <code>function</code>
@@ -37,10 +59,10 @@
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [options] | <code>Object</code> |  | Same as [method.any](method.any) with the following differences: |
+| [options] | <code>object</code> |  | Same as [method.any](method.any) with the following differences: |
 | [options.enforce] | <code>function</code> | <code>enforce.cssSize</code> |  |
 | [options.compare] | <code>function</code> | <code>CssSize.isSame</code> |  |
-| [options.coerce] | <code>Boolean</code> | <code>true</code> | If false then don't coerce the value |
+| [options.coerce] | <code>boolean</code> | <code>true</code> | If false then don't coerce the value |
 
 
 <br><a name="method.dockPoint"></a>
@@ -54,10 +76,10 @@
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [options] | <code>Object</code> |  | Same as [method.any](method.any) with the following differences: |
+| [options] | <code>object</code> |  | Same as [method.any](method.any) with the following differences: |
 | [options.enforce] | <code>function</code> | <code>enforce.dockPoint</code> |  |
 | [options.compare] | <code>function</code> | <code>DockPoint.isSame</code> |  |
-| [options.coerce] | <code>Boolean</code> | <code>true</code> | If false then don't coerce the value |
+| [options.coerce] | <code>boolean</code> | <code>true</code> | If false then don't coerce the value |
 
 
 <br><a name="method.element"></a>
@@ -71,7 +93,7 @@
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [options] | <code>Object</code> |  | Same as [method.any](method.any) with the following differences: |
+| [options] | <code>object</code> |  | Same as [method.any](method.any) with the following differences: |
 | [options.enforce] | <code>function</code> | <code>enforce.element</code> |  |
 
 
@@ -86,10 +108,10 @@
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [options] | <code>Object</code> |  | Same as [method.any](method.any) with the following differences: |
+| [options] | <code>object</code> |  | Same as [method.any](method.any) with the following differences: |
 | [options.enforce] | <code>function</code> | <code>enforce.thickness</code> |  |
 | [options.compare] | <code>function</code> | <code>Thickness.isSame</code> |  |
-| [options.coerce] | <code>Boolean</code> | <code>true</code> | If false then don't coerce the value |
+| [options.coerce] | <code>boolean</code> | <code>true</code> | If false then don't coerce the value |
 
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg

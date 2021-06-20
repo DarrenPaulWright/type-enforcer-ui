@@ -17,18 +17,23 @@
 > Utility functions for checking if something is a particular data type. Includes all the checks from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
 **Example**  
-``` javascriptimport { is } from 'type-enforcer-ui';// Or import individual functionsimport { isBoolean, isString } from 'type-enforcer-ui';```
+``` javascript
+import { is } from 'type-enforcer-ui';
+
+// Or import individual functions
+import { isBoolean, isString } from 'type-enforcer-ui';
+```
 
 * [is](#is) : <code>object</code>
-    * [.cssSize(value, [coerce])](#is.cssSize) ⇒ <code>Boolean</code>
-    * [.dockPoint(value, [coerce])](#is.dockPoint) ⇒ <code>Boolean</code>
-    * [.element(value)](#is.element) ⇒ <code>Boolean</code>
-    * [.thickness(value, [coerce])](#is.thickness) ⇒ <code>Boolean</code>
+    * [.cssSize(value, [coerce])](#is.cssSize) ⇒ <code>boolean</code>
+    * [.dockPoint(value, [coerce])](#is.dockPoint) ⇒ <code>boolean</code>
+    * [.element(value)](#is.element) ⇒ <code>boolean</code>
+    * [.thickness(value, [coerce])](#is.thickness) ⇒ <code>boolean</code>
 
 
 <br><a name="is.cssSize"></a>
 
-### is.cssSize(value, [coerce]) ⇒ <code>Boolean</code>
+### is.cssSize(value, [coerce]) ⇒ <code>boolean</code>
 > Check if a value is a [CssSize](docs/CssSize.md)
 
 **Alias:** `isCssSize`
@@ -37,14 +42,25 @@
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a CssSize |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a CssSize |
 
 **Example**  
-``` javascriptimport { isCssSize } from 'type-enforcer-ui';isCssSize(new CssSize());// => trueisCssSize('14px');// => falseisCssSize('14px', true);// => true```
+``` javascript
+import { isCssSize } from 'type-enforcer-ui';
+
+isCssSize(new CssSize());
+// => true
+
+isCssSize('14px');
+// => false
+
+isCssSize('14px', true);
+// => true
+```
 
 <br><a name="is.dockPoint"></a>
 
-### is.dockPoint(value, [coerce]) ⇒ <code>Boolean</code>
+### is.dockPoint(value, [coerce]) ⇒ <code>boolean</code>
 > Check if a value is a [DockPoint](docs/DockPoint.md)
 
 **Alias:** `isDockPoint`
@@ -53,29 +69,45 @@
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a DockPoint |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a DockPoint |
 
 **Example**  
-``` javascriptimport { isDockPoint } from 'type-enforcer-ui';isDockPoint(new DockPoint());// => trueisDockPoint('top');// => falseisDockPoint('top', true);// => true```
+``` javascript
+import { isDockPoint } from 'type-enforcer-ui';
+
+isDockPoint(new DockPoint());
+// => true
+
+isDockPoint('top');
+// => false
+
+isDockPoint('top', true);
+// => true
+```
 
 <br><a name="is.element"></a>
 
-### is.element(value) ⇒ <code>Boolean</code>
-> Check if a value is a DOM element
+### is.element(value) ⇒ <code>boolean</code>
+> Check if a value is a DOM element.
 
 **Alias:** `isElement`
 
 
-| Param | Type |
-| --- | --- |
-| value | <code>\*</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | A value to check. |
 
 **Example**  
-``` javascriptimport { isElement } from 'type-enforcer-ui';isElement(document.createElement('div'));// => true```
+``` javascript
+import { isElement } from 'type-enforcer-ui';
+
+isElement(document.createElement('div'));
+// => true
+```
 
 <br><a name="is.thickness"></a>
 
-### is.thickness(value, [coerce]) ⇒ <code>Boolean</code>
+### is.thickness(value, [coerce]) ⇒ <code>boolean</code>
 > Check if a value is a [Thickness](docs/Thickness.md)
 
 **Alias:** `isThickness`
@@ -84,10 +116,21 @@
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then see if the value can be coerced into a Thickness |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a Thickness |
 
 **Example**  
-``` javascriptimport { isThickness } from 'type-enforcer-ui';isThickness(new Thickness());// => trueisThickness('12px 20px');// => falseisThickness('12px 20px', true);// => true```
+``` javascript
+import { isThickness } from 'type-enforcer-ui';
+
+isThickness(new Thickness());
+// => true
+
+isThickness('12px 20px');
+// => false
+
+isThickness('12px 20px', true);
+// => true
+```
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
 [npm-url]: https://npmjs.com/package/type-enforcer-ui

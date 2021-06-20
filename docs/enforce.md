@@ -17,7 +17,12 @@
 > Utility functions for enforcing data types. Includes all the enforcers from [type-enforcer](https://github.com/DarrenPaulWright/type-enforcer) and [type-enforcer-math](https://github.com/DarrenPaulWright/type-enforcer-math).
 
 **Example**  
-``` javascriptimport { enforce } from 'type-enforcer-ui';// Or import individual functionsimport { enforceBoolean, enforceString } from 'type-enforcer-ui';```
+``` javascript
+import { enforce } from 'type-enforcer-ui';
+
+// Or import individual functions
+import { enforceBoolean, enforceString } from 'type-enforcer-ui';
+```
 
 * [enforce](#enforce) : <code>object</code>
     * [.cssSize(value, alt, [coerce])](#enforce.cssSize) ⇒ <code>CssSize</code>
@@ -38,10 +43,21 @@
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
 | alt | <code>CssSize</code> |  | Returned if the value is not the correct type |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then coerce the value when possible |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 
 **Example**  
-``` javascriptimport { enforce } from 'type-enforcer-ui';enforce.cssSize(new CssSize('14px'), new CssSize());// => cssSize of 14pxenforce.cssSize('14px', new CssSize());// => cssSize of 0enforce.cssSize('14px', new CssSize(), true);// => cssSize of 14px```
+``` javascript
+import { enforce } from 'type-enforcer-ui';
+
+enforce.cssSize(new CssSize('14px'), new CssSize());
+// => cssSize of 14px
+
+enforce.cssSize('14px', new CssSize());
+// => cssSize of 0
+
+enforce.cssSize('14px', new CssSize(), true);
+// => cssSize of 14px
+```
 
 <br><a name="enforce.dockPoint"></a>
 
@@ -54,11 +70,22 @@
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
-| alt | <code>String</code> |  | Returned if the value is not the correct type |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then coerce the value when possible |
+| alt | <code>string</code> |  | Returned if the value is not the correct type |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 
 **Example**  
-``` javascriptimport { enforce } from 'type-enforcer-ui';enforce.dockPoint(new DockPoint(DockPoint.POINTS.TOP), new DockPoint(DockPoint.POINTS.BOTTOM));// => dockPoint of topenforce.dockPoint('top', new DockPoint(DockPoint.POINTS.BOTTOM));// => dockPoint of bottomenforce.dockPoint('top', new DockPoint(DockPoint.POINTS.BOTTOM), true);// => dockPoint of top```
+``` javascript
+import { enforce } from 'type-enforcer-ui';
+
+enforce.dockPoint(new DockPoint(DockPoint.POINTS.TOP), new DockPoint(DockPoint.POINTS.BOTTOM));
+// => dockPoint of top
+
+enforce.dockPoint('top', new DockPoint(DockPoint.POINTS.BOTTOM));
+// => dockPoint of bottom
+
+enforce.dockPoint('top', new DockPoint(DockPoint.POINTS.BOTTOM), true);
+// => dockPoint of top
+```
 
 <br><a name="enforce.element"></a>
 
@@ -70,11 +97,22 @@
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>\*</code> |  |
-| alt | <code>Element</code> | Returned if the value is not the correct type |
+| value | <code>\*</code> | The value to enforce. |
+| alt | <code>Element</code> | Returned if the value is not the correct type. |
 
 **Example**  
-``` javascriptimport { enforce } from 'type-enforcer-ui';enforce.element(document.createElement('span'), document.createElement('div'));// => a span elementenforce.element('span', document.createElement('div'));// => a div elementenforce.element('span', document.createElement('div'), true);// => a span element```
+``` javascript
+import { enforce } from 'type-enforcer-ui';
+
+enforce.element(document.createElement('span'), document.createElement('div'));
+// => a span element
+
+enforce.element('span', document.createElement('div'));
+// => a div element
+
+enforce.element('span', document.createElement('div'), true);
+// => a span element
+```
 
 <br><a name="enforce.thickness"></a>
 
@@ -88,10 +126,21 @@
 | --- | --- | --- | --- |
 | value | <code>\*</code> |  |  |
 | alt | <code>Thickness</code> |  | Returned if the value is not the correct type |
-| [coerce] | <code>Boolean</code> | <code>false</code> | If true then coerce the value when possible |
+| [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 
 **Example**  
-``` javascriptimport { enforce } from 'type-enforcer-ui';enforce.thickness(new Thickness('12px 20px'), new Thickness());// => thickness of '12px 20px'enforce.thickness('12px 20px', new Thickness());// => thickness of 0enforce.thickness('12px 20px', new Thickness(), true);// => thickness of '12px 20px'```
+``` javascript
+import { enforce } from 'type-enforcer-ui';
+
+enforce.thickness(new Thickness('12px 20px'), new Thickness());
+// => thickness of '12px 20px'
+
+enforce.thickness('12px 20px', new Thickness());
+// => thickness of 0
+
+enforce.thickness('12px 20px', new Thickness(), true);
+// => thickness of '12px 20px'
+```
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
 [npm-url]: https://npmjs.com/package/type-enforcer-ui
