@@ -1,10 +1,11 @@
 import { benchSettings } from 'karma-webpack-bundle';
 import { DockPoint } from '../index.js';
 
+/* eslint-disable no-unused-vars */
 suite('DockPoint', () => {
-	let sandbox;
-	let dockpoint;
-	let dockpoint2;
+	let sandbox = null;
+	let dockpoint = {};
+	let dockpoint2 = {};
 
 	benchmark('init default', () => {
 		sandbox = new DockPoint();
@@ -155,5 +156,4 @@ suite('DockPoint', () => {
 			dockpoint = new DockPoint(DockPoint.POINTS.TOP_RIGHT);
 		}
 	});
-
 });

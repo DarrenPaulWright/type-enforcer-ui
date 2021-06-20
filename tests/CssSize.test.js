@@ -8,29 +8,29 @@ import {
 	unitlessCssSizes,
 	validCssValues,
 	validCssValuesShortList
-} from './testValues.js';
+} from './helpers/testValues.js';
 
 const zeros = [0, '0'];
 
-let tmpElement = document.createElement('div');
-document.body.appendChild(tmpElement);
+let temporaryElement = document.createElement('div');
+document.body.appendChild(temporaryElement);
 const measure = {};
 const measureValue = (value, key) => {
-	tmpElement.style.height = value;
-	measure[key] = parseFloat(window.getComputedStyle(tmpElement).height);
+	temporaryElement.style.height = value;
+	measure[key] = parseFloat(window.getComputedStyle(temporaryElement).height);
 };
 measureValue('2vh', 'vh');
 measureValue('2vw', 'vw');
 measureValue('2em', 'em');
 measureValue('2ex', 'ex');
 measureValue('2ch', 'ch');
-tmpElement.style.fontSize = '40px';
+temporaryElement.style.fontSize = '40px';
 measureValue('2em', 'emLarge');
 measureValue('2ex', 'exLarge');
 measureValue('2ch', 'chLarge');
 
-tmpElement.remove();
-tmpElement = null;
+temporaryElement.remove();
+temporaryElement = null;
 
 describe('CssSize', () => {
 	describe('constructor', () => {
@@ -143,8 +143,8 @@ describe('CssSize', () => {
 		});
 
 		it('should return the same value twice', () => {
-			const cssSize = new CssSize('22px');
-			assert.is(cssSize.value, cssSize.value);
+			const thisCssSize = new CssSize('22px');
+			assert.is(thisCssSize.value, thisCssSize.value);
 		});
 	});
 
@@ -305,7 +305,7 @@ describe('CssSize', () => {
 		const testCallback = (value1, value2) => new CssSize(value1).isSame(value2);
 		const isValid = (value1, value2) => {
 			return (value1 !== value2 &&
-				!(value1.size === 0 && value2.size === '0' || value1.size === '0' && value2.size === 0) &&
+				!((value1.size === 0 && value2.size === '0') || (value1.size === '0' && value2.size === 0)) &&
 				!(value1.size + PIXELS === value2.size || value1.size === value2.size + PIXELS));
 		};
 

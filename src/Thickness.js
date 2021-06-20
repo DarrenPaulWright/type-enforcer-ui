@@ -2,7 +2,7 @@ import { castArray, isString, PrivateVars } from 'type-enforcer';
 import CssSize from './CssSize.js';
 import methodElement from './methods/methodElement.js';
 
-const SEPARATOR = /[, ]+/;
+const SEPARATOR = /[ ,]+/u;
 const SPACE = ' ';
 const splitArgs = (args) => (args.length === 1 && isString(args[0])) ? args[0].trim()
 	.split(SEPARATOR) : args;
@@ -38,10 +38,10 @@ const _ = new PrivateVars();
  * // => '20px 20px 5px'
  * ```
  *
- * @arg {String|Number|Array} [top] - If only one size is provided it gets applied to all sides. See examples for different arrangements of args.
- * @arg {String|Number} [right] - If two sizes are provided the first gets applied to top and bottom, the second size gets applied right and left
- * @arg {String|Number} [bottom] - If three sizes are provided the first gets applied to top, the second to right and left, and the third to bottom
- * @arg {String|Number} [left] - If four sizes are provided then they get applied to top, right, bottom, and left respectively
+ * @param {string | number | Array} [top] - If only one size is provided it gets applied to all sides. See examples for different arrangements of args.
+ * @param {string | number} [right] - If two sizes are provided the first gets applied to top and bottom, the second size gets applied right and left
+ * @param {string | number} [bottom] - If three sizes are provided the first gets applied to top, the second to right and left, and the third to bottom
+ * @param {string | number} [left] - If four sizes are provided then they get applied to top, right, bottom, and left respectively
  */
 export default class Thickness {
 	constructor(...args) {
@@ -53,26 +53,22 @@ export default class Thickness {
 		});
 
 		if (args.length !== 0) {
-			this.set.apply(this, args);
+			this.set(...args);
 		}
 	}
 
 	/**
-	 * Set the sizes of all sides
+	 * Set the sizes of all sides.
 	 *
 	 * @memberOf Thickness
 	 * @instance
 	 *
-	 * @arg {String|Number|Array} [top]
-	 * @arg {String|Number} [right]
-	 * @arg {String|Number} [bottom]
-	 * @arg {String|Number} [left]
-	 *
-	 * @returns {boolean}
+	 * @param {...string | ...number | Array | Thickness} [args] - Can be multiple numbers as pixels (1, 2,3 , 4) or multiple strings ('1px', '2rem') or an array of similar numbers or strings or another thickness.
 	 */
-	set() {
+	set(...args) {
 		const _self = _(this);
-		const args = splitArgs(arguments);
+
+		args = splitArgs(args);
 
 		const setValues = (top, right, bottom, left) => {
 			_self.top.set(top);
@@ -81,45 +77,46 @@ export default class Thickness {
 			_self.left.set(left);
 		};
 
-		if (Thickness.isValid.apply(null, args)) {
+		if (Thickness.isValid(...args)) {
 			if (args[0] instanceof Thickness) {
 				setValues(args[0].top, args[0].right, args[0].bottom, args[0].left);
 			}
-			else {
-				if (args.length === 1) {
-					setValues(args[0], args[0], args[0], args[0]);
-				}
-				else if (args.length === 2) {
-					setValues(args[0], args[1], args[0], args[1]);
-				}
-				else if (args.length === 3) {
-					setValues(args[0], args[1], args[2], args[1]);
-				}
-				else if (args.length === 4) {
-					setValues(args[0], args[1], args[2], args[3]);
-				}
+			else if (args.length === 1) {
+				setValues(args[0], args[0], args[0], args[0]);
+			}
+			else if (args.length === 2) {
+				setValues(args[0], args[1], args[0], args[1]);
+			}
+			else if (args.length === 3) {
+				setValues(args[0], args[1], args[2], args[1]);
+			}
+			else if (args.length === 4) {
+				setValues(args[0], args[1], args[2], args[3]);
 			}
 		}
 	}
 
 	/**
-	 * Determine if something is a valid Thickness
+	 * Determine if something is a valid Thickness.
 	 *
 	 * @memberOf Thickness
 	 *
-	 * @arg {*} value
+	 * @param {...string | ...number | Array | Thickness} [args] - Can be multiple numbers as pixels (1, 2,3 , 4) or multiple strings ('1px', '2rem') or an array of similar numbers or strings or another thickness.
 	 *
 	 * @returns {boolean}
 	 */
-	static isValid() {
-		const args = splitArgs(arguments);
+	static isValid(...args) {
+		args = splitArgs(args);
 
 		return args[0] instanceof Thickness ||
-			args.length !== 0 && args.length < 5 && castArray(args).every(CssSize.isValid);
+			(
+				args.length !== 0 && args.length < 5 &&
+				castArray(args).every(CssSize.isValid)
+			);
 	}
 
 	/**
-	 * The top size
+	 * The top size.
 	 *
 	 * @memberOf Thickness
 	 * @instance
@@ -135,7 +132,7 @@ export default class Thickness {
 	}
 
 	/**
-	 * The right size
+	 * The right size.
 	 *
 	 * @memberOf Thickness
 	 * @instance
@@ -151,7 +148,7 @@ export default class Thickness {
 	}
 
 	/**
-	 * The bottom size
+	 * The bottom size.
 	 *
 	 * @memberOf Thickness
 	 * @instance
@@ -167,7 +164,7 @@ export default class Thickness {
 	}
 
 	/**
-	 * The left size
+	 * The left size.
 	 *
 	 * @memberOf Thickness
 	 * @instance
@@ -183,13 +180,13 @@ export default class Thickness {
 	}
 
 	/**
-	 * Get the sum of the right and left
+	 * Get the sum of the right and left.
 	 *
 	 * @memberOf Thickness
 	 * @instance
 	 * @readonly
 	 *
-	 * @type {Number}
+	 * @type {number}
 	 */
 	get horizontal() {
 		const _self = _(this);
@@ -198,13 +195,13 @@ export default class Thickness {
 	}
 
 	/**
-	 * Get the sum of the top and bottom
+	 * Get the sum of the top and bottom.
 	 *
 	 * @memberOf Thickness
 	 * @instance
 	 * @readonly
 	 *
-	 * @type {Number}
+	 * @type {number}
 	 */
 	get vertical() {
 		const _self = _(this);
@@ -213,14 +210,14 @@ export default class Thickness {
 	}
 
 	/**
-	 * Determine if another thickness is the same as this one
+	 * Determine if another thickness is the same as this one.
 	 *
 	 * @memberOf Thickness
 	 * @instance
 	 *
-	 * @arg {Thickness} thickness
+	 * @param {Thickness | string} thickness - A value to compare to this one.
 	 *
-	 * @returns {Boolean}
+	 * @returns {boolean}
 	 */
 	isSame(thickness) {
 		const _self = _(this);
@@ -230,16 +227,16 @@ export default class Thickness {
 			_self.right.isSame(thickness.right) &&
 			_self.bottom.isSame(thickness.bottom) &&
 			_self.left.isSame(thickness.left)
-		) || Thickness.isValid(thickness) && this.toString() === thickness.toString();
+		) || (Thickness.isValid(thickness) && this.toString() === thickness.toString());
 	}
 
 	/**
-	 * Get this thickness as a space separated string
+	 * Get this thickness as a space separated string.
 	 *
 	 * @memberOf Thickness
 	 * @instance
 	 *
-	 * @returns {String}
+	 * @returns {string}
 	 */
 	toString() {
 		const _self = _(this);
@@ -263,13 +260,13 @@ export default class Thickness {
 
 Object.assign(Thickness.prototype, {
 	/**
-	 * Set the element to measure font based units against
+	 * Set the element to measure font based units against.
 	 *
 	 * @method
 	 * @memberOf Thickness
 	 * @instance
 	 *
-	 * @arg {Element} [element] - A DOM element
+	 * @param {Element} [element] - A DOM element.
 	 *
 	 * @returns {this|Element}
 	 */

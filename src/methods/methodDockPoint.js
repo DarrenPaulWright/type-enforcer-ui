@@ -8,10 +8,10 @@ import enforceDockPoint from '../enforcer/enforceDockPoint.js';
  * @extends method.any
  * @alias methodDockPoint
  *
- * @arg {Object} [options] - Same as {@link method.any} with the following differences:
- * @arg {Function} [options.enforce=enforce.dockPoint]
- * @arg {Function} [options.compare=DockPoint.isSame]
- * @arg {Boolean} [options.coerce=true] - If false then don't coerce the value
+ * @param {object} [options] - Same as {@link method.any} with the following differences:
+ * @param {Function} [options.enforce=enforce.dockPoint]
+ * @param {Function} [options.compare=DockPoint.isSame]
+ * @param {boolean} [options.coerce=true] - If false then don't coerce the value
  *
  * @returns {Function}
  */

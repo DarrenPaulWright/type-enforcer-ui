@@ -3,15 +3,17 @@ import { Queue } from 'type-enforcer';
 
 let windowWidth = 0;
 let windowHeight = 0;
-let triggerAll;
+let triggerAll = () => {
+};
 
+/* eslint-disable jsdoc/valid-types */
 /**
  * @class windowResize
  * @extends [Queue](https://github.com/DarrenPaulWright/type-enforcer/blob/master/docs/Queue.md)
  * @hideconstructor
  * @classdesc Executes callbacks whenever the screen is resized (throttled at 100ms) or explicitly triggered
  */
-class windowResize extends Queue {
+class WindowResize extends Queue {
 	constructor() {
 		super();
 
@@ -33,8 +35,7 @@ class windowResize extends Queue {
 	/**
 	 * Triggers one or all callbacks. Two arguments are passed to the callback: width and height. If an id is provided then the callback is called immediately, otherwise the call is debounced.
 	 *
-	 * @arg {Number} [id] - To trigger only a specific callback, provide the id returned by windowResize.add().
-	 *     Otherwise all callbacks are called.
+	 * @param {number} [id] - To trigger only a specific callback, provide the id returned by windowResize.add(). Otherwise all callbacks are called.
 	 */
 	trigger(id) {
 		if (id) {
@@ -68,4 +69,6 @@ class windowResize extends Queue {
 	}
 }
 
-export default new windowResize();
+const windowResize = new WindowResize();
+
+export default windowResize;

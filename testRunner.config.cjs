@@ -12,7 +12,7 @@ module.exports = [{
 }, {
 	type: 'helper',
 	files: [
-		'tests/testValues.js'
+		'tests/helpers/testValues.js'
 	]
 }, {
 	type: 'specs',

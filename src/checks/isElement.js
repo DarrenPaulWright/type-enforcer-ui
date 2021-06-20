@@ -1,5 +1,5 @@
 /**
- * Check if a value is a DOM element
+ * Check if a value is a DOM element.
  *
  * @example
  * ``` javascript
@@ -12,8 +12,8 @@
  * @function is.element
  * @alias isElement
  *
- * @arg {*} value
+ * @param {*} value - A value to check.
  *
- * @returns {Boolean}
+ * @returns {boolean}
  */
 export default (value) => Boolean(value) && value.nodeType === 1;

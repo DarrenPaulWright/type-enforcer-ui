@@ -1,10 +1,11 @@
 import { benchSettings } from 'karma-webpack-bundle';
 import { Thickness } from '../index.js';
 
+/* eslint-disable no-unused-vars */
 suite('Thickness', () => {
-	let sandbox;
-	let thickness;
-	let thickness2;
+	let sandbox = null;
+	let thickness = {};
+	let thickness2 = {};
 
 	benchmark('init default', () => {
 		sandbox = new Thickness();
@@ -177,5 +178,4 @@ suite('Thickness', () => {
 			thickness = new Thickness(32, 16, 8, 4);
 		}
 	});
-
 });

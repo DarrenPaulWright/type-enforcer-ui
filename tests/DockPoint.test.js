@@ -1,7 +1,7 @@
 import { assert } from 'type-enforcer';
 import { multiTest } from 'type-enforcer-test-helper';
 import { DockPoint } from '../index.js';
-import { dockPointData as data } from './testValues.js';
+import { dockPointData as data } from './helpers/testValues.js';
 
 describe('DockPoint', () => {
 	describe('.primary', () => {

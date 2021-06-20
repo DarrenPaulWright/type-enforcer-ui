@@ -9,7 +9,12 @@ import {
 	enforceThickness,
 	Thickness
 } from '../index.js';
-import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues.js';
+import {
+	cssSizeData,
+	dockPointData,
+	elementData,
+	thicknessData
+} from './helpers/testValues.js';
 
 describe('enforce', () => {
 	describe('.cssSize', () => {

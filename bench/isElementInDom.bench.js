@@ -1,9 +1,10 @@
 import { benchSettings } from 'karma-webpack-bundle';
 import isElementInDom from '../src/utility/isElementInDom.js';
 
+/* eslint-disable no-unused-vars */
 suite('isElementInDom', () => {
-	let sandbox;
-	let element;
+	let sandbox = null;
+	let element = {};
 
 	benchmark('undefined', () => {
 		sandbox = isElementInDom();
@@ -27,5 +28,4 @@ suite('isElementInDom', () => {
 			document.body.appendChild(element);
 		}
 	});
-
 });

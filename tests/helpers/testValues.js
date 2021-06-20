@@ -1,4 +1,10 @@
-import { testTypes, testValues, validArrays, validFloats, validIntegers } from 'type-enforcer-test-helper';
+import {
+	testTypes,
+	testValues,
+	validArrays,
+	validFloats,
+	validIntegers
+} from 'type-enforcer-test-helper';
 import {
 	AUTO,
 	CENTIMETERS,
@@ -22,21 +28,22 @@ import {
 	VIEWPORT_MIN,
 	VIEWPORT_WIDTH,
 	ZERO_PIXELS
-} from '../index.js';
+} from '../../index.js';
 
 const difference = (array1, ...args) => {
-	let diffArrays = [].concat(...args);
+	const diffArrays = [].concat(...args);
 	return array1.filter((item) => !diffArrays.includes(item));
 };
 
 export const validCssSizes = [new CssSize('14px'), new CssSize('20px')];
 export const validDockPoints = [new DockPoint(DockPoint.POINTS.TOP_CENTER),
 	new DockPoint(DockPoint.POINTS.BOTTOM_LEFT)];
-export const validElements = [document.createElement('div'), document.createElement('span')];
+export const validElements = [document.createElement('div'),
+	document.createElement('span')];
 export const validThicknesses = [new Thickness('12px'), new Thickness('20px')];
 
 export const unitlessCssSizes = [AUTO, INITIAL, INHERIT, NONE].map((size) => ({
-	size: size,
+	size,
 	value: undefined,
 	unit: undefined
 }));
@@ -113,7 +120,8 @@ export const cssSizeData = {
 	name: 'cssSize',
 	true: validCssSizes,
 	false: difference(testValues, validCssSizes),
-	coerceTrue: validCssValues.map((item) => item.size).concat(['inherit', 'initial']),
+	coerceTrue: validCssValues.map((item) => item.size)
+		.concat(['inherit', 'initial']),
 	coerceFalse: difference(testValues, validCssSizes, validIntegers, validFloats)
 };
 export const dockPointData = {
@@ -141,6 +149,9 @@ export const thicknessData = {
 	coerceFalse: difference(testValues, validThicknesses, validCssSizes, validIntegers, validFloats, validArrays)
 };
 
-export const localTestTypes = [cssSizeData, dockPointData, elementData, thicknessData];
+export const localTestTypes = [cssSizeData,
+	dockPointData,
+	elementData,
+	thicknessData];
 
 localTestTypes.forEach((type) => testTypes.push(type));

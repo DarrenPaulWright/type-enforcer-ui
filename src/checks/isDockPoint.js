@@ -21,9 +21,9 @@ import DockPoint from '../DockPoint.js';
  * @function is.dockPoint
  * @alias isDockPoint
  *
- * @arg {*} value
- * @arg {Boolean} [coerce=false] - If true then see if the value can be coerced into a DockPoint
+ * @param {*} value
+ * @param {boolean} [coerce=false] - If true then see if the value can be coerced into a DockPoint
  *
- * @returns {Boolean}
+ * @returns {boolean}
  */
 export default isPoint.extend(DockPoint);

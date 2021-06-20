@@ -22,9 +22,9 @@ import CssSize from '../CssSize.js';
  * @function enforce.cssSize
  * @alias enforceCssSize
  *
- * @arg {*} value
- * @arg {CssSize} alt - Returned if the value is not the correct type
- * @arg {Boolean} [coerce=false] - If true then coerce the value when possible
+ * @param {*} value
+ * @param {CssSize} alt - Returned if the value is not the correct type
+ * @param {boolean} [coerce=false] - If true then coerce the value when possible
  *
  * @returns {CssSize}
  */

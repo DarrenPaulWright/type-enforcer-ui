@@ -23,9 +23,9 @@ import DockPoint from '../DockPoint.js';
  * @function enforce.dockPoint
  * @alias enforceDockPoint
  *
- * @arg {*} value
- * @arg {String} alt - Returned if the value is not the correct type
- * @arg {Boolean} [coerce=false] - If true then coerce the value when possible
+ * @param {*} value
+ * @param {string} alt - Returned if the value is not the correct type
+ * @param {boolean} [coerce=false] - If true then coerce the value when possible
  *
  * @returns {DockPoint}
  */

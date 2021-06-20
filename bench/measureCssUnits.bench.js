@@ -15,13 +15,19 @@ import {
 } from '../src/utility/cssUnits.js';
 import measureCssUnits from '../src/utility/measureCssUnits.js';
 
+/* eslint-disable no-unused-vars */
 suite('measureCssUnits', () => {
-	let sandbox;
+	let sandbox = null;
 	const element = document.createElement('div');
 	const element2 = document.createElement('div');
 	const viewPortUnits = [VIEWPORT_HEIGHT, VIEWPORT_WIDTH, VIEWPORT_MIN];
 	const fontBasedUnits = [EM, EX, CH];
-	const pixelBasedUnits = [PIXELS, INCHES, CENTIMETERS, MILLIMETERS, PICAS, POINTS];
+	const pixelBasedUnits = [PIXELS,
+		INCHES,
+		CENTIMETERS,
+		MILLIMETERS,
+		PICAS,
+		POINTS];
 
 	document.body.appendChild(element2);
 
@@ -68,5 +74,4 @@ suite('measureCssUnits', () => {
 	benchmark('pixelBasedUnits element attached', () => {
 		sandbox = measureCssUnits(pixelBasedUnits, {}, element2);
 	}, benchSettings);
-
 });

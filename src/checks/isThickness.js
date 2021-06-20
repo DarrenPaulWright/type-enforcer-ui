@@ -21,9 +21,9 @@ import Thickness from '../Thickness.js';
  * @function is.thickness
  * @alias isThickness
  *
- * @arg {*} value
- * @arg {Boolean} [coerce=false] - If true then see if the value can be coerced into a Thickness
+ * @param {*} value
+ * @param {boolean} [coerce=false] - If true then see if the value can be coerced into a Thickness
  *
- * @returns {Boolean}
+ * @returns {boolean}
  */
 export default isPoint.extend(Thickness);

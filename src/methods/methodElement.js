@@ -8,8 +8,8 @@ import enforceElement from '../enforcer/enforceElement.js';
  * @extends method.any
  * @alias methodElement
  *
- * @arg {Object} [options] - Same as {@link method.any} with the following differences:
- * @arg {Function} [options.enforce=enforce.element]
+ * @param {object} [options] - Same as {@link method.any} with the following differences:
+ * @param {Function} [options.enforce=enforce.element]
  *
  * @returns {Function}
  */

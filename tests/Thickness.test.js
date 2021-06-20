@@ -1,7 +1,7 @@
 import { assert } from 'type-enforcer';
 import { multiTest } from 'type-enforcer-test-helper';
 import { Thickness } from '../index.js';
-import { thicknessData as data } from './testValues.js';
+import { thicknessData as data } from './helpers/testValues.js';
 
 describe('Thickness', () => {
 	describe('init', () => {
@@ -194,19 +194,19 @@ describe('Thickness', () => {
 			assert.is(thickness.toString(), '3px');
 		});
 
-		it('should combine all sides into one if they are the same', () => {
+		it('should combine all sides into one if left is different', () => {
 			const thickness = new Thickness(3, 3, 3, 4);
 
 			assert.is(thickness.toString(), '3px 3px 3px 4px');
 		});
 
-		it('should combine all sides into one if they are the same', () => {
+		it('should combine all sides into one if bottom is different', () => {
 			const thickness = new Thickness(3, 3, 4, 3);
 
 			assert.is(thickness.toString(), '3px 3px 4px');
 		});
 
-		it('should combine all sides into one if they are the same', () => {
+		it('should combine all sides into one if right is different', () => {
 			const thickness = new Thickness(3, 4, 3, 3);
 
 			assert.is(thickness.toString(), '3px 4px 3px 3px');
@@ -224,7 +224,7 @@ describe('Thickness', () => {
 			assert.is(thickness.toString(), '3px 5px 4px');
 		});
 
-		it('should convert non-pixel units', () => {
+		it('should convert non-pixel units and merge them', () => {
 			const thickness = new Thickness('16px 4rem 1rem');
 
 			assert.is(thickness.toString(), '16px 64px');

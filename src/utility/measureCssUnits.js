@@ -2,7 +2,7 @@ import isElementInDom from './isElementInDom.js';
 
 export default (units, save, element) => {
 	const isAttached = Boolean(element) && isElementInDom(element);
-	let thisElement = element || document.createElement('div');
+	const thisElement = element || document.createElement('div');
 	const originalHeight = element ? thisElement.style.maxHeight : 0;
 
 	if (isAttached === false) {
@@ -12,8 +12,8 @@ export default (units, save, element) => {
 	const styles = window.getComputedStyle(thisElement);
 
 	units.forEach((unit) => {
-		(thisElement.style.maxHeight = '1' + unit) &&
-		(save[unit] = Number(styles.maxHeight.slice(0, -2)) || 0);
+		thisElement.style.maxHeight = '1' + unit;
+		save[unit] = Number(styles.maxHeight.slice(0, -2)) || 0;
 	});
 
 	if (element === undefined) {

@@ -27,19 +27,26 @@ import windowResize from './windowResize.js';
 
 const viewPortUnits = [VIEWPORT_HEIGHT, VIEWPORT_WIDTH, VIEWPORT_MIN];
 const fontBasedUnits = [EM, EX, CH];
-const pixelBasedUnits = [PIXELS, INCHES, CENTIMETERS, MILLIMETERS, PICAS, POINTS];
+const pixelBasedUnits = [PIXELS,
+	INCHES,
+	CENTIMETERS,
+	MILLIMETERS,
+	PICAS,
+	POINTS];
 const fixedUnits = pixelBasedUnits.concat(fontBasedUnits, viewPortUnits, ROOT_EM);
 
 const NUMERIC_VALUE = '^[0-9+-.E]+';
-const NUMERIC_REGEX = new RegExp(NUMERIC_VALUE);
-const CSS_SIZE_REGEX = new RegExp(NUMERIC_VALUE + '(' + fixedUnits.concat(PERCENT).join('|') + ')$');
+const NUMERIC_REGEX = new RegExp(NUMERIC_VALUE, 'u');
+const CSS_SIZE_REGEX = new RegExp(NUMERIC_VALUE + '(' + fixedUnits.concat(PERCENT)
+	.join('|') + ')$', 'u');
 
-const unitlessSizesMap = [AUTO, INITIAL, INHERIT, NONE].reduce((result, value) => {
-	result[value] = true;
-	return result;
-}, {});
+const unitlessSizesMap = [AUTO, INITIAL, INHERIT, NONE]
+	.reduce((result, value) => {
+		result[value] = true;
+		return result;
+	}, {});
 
-const validSizesMap = {...unitlessSizesMap};
+const validSizesMap = { ...unitlessSizesMap };
 validSizesMap[ZERO_PIXELS] = true;
 
 let oneRem = 0;
@@ -49,8 +56,8 @@ const getMeasurement = (save, units, unit, element) => {
 	return save[unit] || measureCssUnits(units, save, element) || save[unit];
 };
 
-let currentWindowWidth;
-let currentWindowHeight;
+let currentWindowWidth = 0;
+let currentWindowHeight = 0;
 windowResize.trigger(windowResize.add((width, height) => {
 	if (currentWindowWidth !== width || currentWindowHeight !== height) {
 		currentWindowWidth = width;
@@ -70,40 +77,41 @@ const _ = new PrivateVars();
  * import { CssSize } from 'type-enforcer-ui';
  * ```
  *
- * @arg {String} [size=0]
+ * @param {string} [size=0]
  */
 export default class CssSize {
 	constructor(size) {
 		if (size !== undefined) {
-			_.set(this, {size: ZERO_PIXELS});
+			_.set(this, { size: ZERO_PIXELS });
 
 			this.set(size);
 		}
 	}
 
 	/**
-	 * Determine if something is a valid css size
+	 * Determine if something is a valid css size.
 	 *
 	 * @memberOf CssSize
 	 *
-	 * @arg {*} value
+	 * @param {*} value - A value to check.
 	 *
 	 * @returns {boolean}
 	 */
 	static isValid(value) {
-		return isString(value) &&
-			(validSizesMap[value] || CSS_SIZE_REGEX.test(value) || isNonZeroNumber(value)) ||
+		return (isString(value) &&
+			(validSizesMap[value] || CSS_SIZE_REGEX.test(value) || isNonZeroNumber(value))) ||
 			isFloat(value) ||
 			value instanceof CssSize;
 	}
 
 	/**
-	 * Set the value
+	 * Set the value.
 	 *
 	 * @memberOf CssSize
 	 * @instance
+	 * @chainable
 	 *
-	 * @arg {String} size - A valid css size, ie '32px', '1rem', 'auto', etc.
+	 * @param {string} size - A valid css size, ie '32px', '1rem', 'auto', etc.
 	 *
 	 * @returns {this}
 	 */
@@ -120,12 +128,12 @@ export default class CssSize {
 	}
 
 	/**
-	 * Get the units portion of the current value
+	 * Get the units portion of the current value.
 	 *
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @returns {String}
+	 * @returns {string}
 	 */
 	get units() {
 		const _self = _(this);
@@ -142,12 +150,12 @@ export default class CssSize {
 	}
 
 	/**
-	 * Get the numeric portion of the current value
+	 * Get the numeric portion of the current value.
 	 *
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	get value() {
 		const _self = _(this);
@@ -164,14 +172,14 @@ export default class CssSize {
 	}
 
 	/**
-	 * Get the pixel equivalent of the current value
+	 * Get the pixel equivalent of the current value.
 	 *
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @arg {boolean} [getNumber=false] - If true then return a number, else a string with 'px' on the end.
+	 * @param {boolean} [getNumber=false] - If true then return a number, else a string with 'px' on the end.
 	 *
-	 * @returns {Number|String}
+	 * @returns {number | string}
 	 */
 	toPixels(getNumber = false) {
 		const _self = _(this);
@@ -184,32 +192,30 @@ export default class CssSize {
 			if (unitlessSizesMap[_self.size]) {
 				_self.pixelsValue = _self.size;
 			}
+			else if (this.isPercent) {
+				_self.pixelsValue = _self.size;
+			}
 			else {
-				if (this.isPercent) {
-					_self.pixelsValue = _self.size;
+				const units = this.units;
+
+				if (units === ROOT_EM) {
+					_self.pixelsValue = oneRem || (oneRem = parseFloat(window.getComputedStyle(document.documentElement).fontSize));
+				}
+				else if (pixelBasedUnits.includes(units)) {
+					_self.pixelsValue = getMeasurement(pixelBasedUnitMeasurements, pixelBasedUnits, units);
+				}
+				else if (viewPortUnits.includes(units)) {
+					_self.pixelsValue = getMeasurement(viewPortUnitMeasurements, viewPortUnits, units);
+				}
+				else if (fontBasedUnits.includes(units)) {
+					_self.fontBasedUnits = _self.fontBasedUnits || {};
+					_self.pixelsValue = getMeasurement(_self.fontBasedUnits, fontBasedUnits, units, this.element());
 				}
 				else {
-					const units = this.units;
-
-					if (units === ROOT_EM) {
-						_self.pixelsValue = oneRem || (oneRem = parseFloat(window.getComputedStyle(document.documentElement).fontSize));
-					}
-					else if (pixelBasedUnits.includes(units)) {
-						_self.pixelsValue = getMeasurement(pixelBasedUnitMeasurements, pixelBasedUnits, units);
-					}
-					else if (viewPortUnits.includes(units)) {
-						_self.pixelsValue = getMeasurement(viewPortUnitMeasurements, viewPortUnits, units);
-					}
-					else if (fontBasedUnits.includes(units)) {
-						_self.fontBasedUnits = _self.fontBasedUnits || {};
-						_self.pixelsValue = getMeasurement(_self.fontBasedUnits, fontBasedUnits, units, this.element());
-					}
-					else {
-						_self.pixelsValue = 1;
-					}
-
-					_self.pixelsValue *= this.value || 0;
+					_self.pixelsValue = 1;
 				}
+
+				_self.pixelsValue *= this.value || 0;
 			}
 		}
 
@@ -219,7 +225,7 @@ export default class CssSize {
 	}
 
 	/**
-	 * Determine if the current value is 'auto'
+	 * Determine if the current value is 'auto'.
 	 *
 	 * @memberOf CssSize
 	 * @instance
@@ -231,7 +237,7 @@ export default class CssSize {
 	}
 
 	/**
-	 * Determine if the current value is a fixed size
+	 * Determine if the current value is a fixed size.
 	 *
 	 * @memberOf CssSize
 	 * @instance
@@ -243,7 +249,7 @@ export default class CssSize {
 	}
 
 	/**
-	 * Determine if the current value is a percent size
+	 * Determine if the current value is a percent size.
 	 *
 	 * @memberOf CssSize
 	 * @instance
@@ -255,12 +261,12 @@ export default class CssSize {
 	}
 
 	/**
-	 * Determine if another size is equivalent to this one
+	 * Determine if another size is equivalent to this one.
 	 *
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @arg {CssSize|String} size
+	 * @param {CssSize | string} size - A value to check against this css sie.
 	 *
 	 * @returns {boolean}
 	 */
@@ -274,12 +280,12 @@ export default class CssSize {
 	}
 
 	/**
-	 * Get the current value as a string
+	 * Get the current value as a string.
 	 *
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @returns {String}
+	 * @returns {string}
 	 */
 	toString() {
 		return _(this) === undefined ? '0' : _(this).size;
@@ -288,19 +294,19 @@ export default class CssSize {
 
 Object.assign(CssSize.prototype, {
 	/**
-	 * Set the element to measure font based units against
+	 * Set the element to measure font based units against.
 	 *
 	 * @method
 	 * @memberOf CssSize
 	 * @instance
 	 *
-	 * @arg {Element} [element] - A DOM element
+	 * @param {Element} [element] - A DOM element.
 	 *
 	 * @returns {this|Element}
 	 */
 	element: methodElement({
 		set() {
-			const _self = _(this) || _.set(this, {size: ZERO_PIXELS});
+			const _self = _(this) || _.set(this, { size: ZERO_PIXELS });
 			_self.fontBasedUnits = {};
 		}
 	})

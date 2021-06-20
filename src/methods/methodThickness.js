@@ -8,10 +8,10 @@ import enforceThickness from '../enforcer/enforceThickness.js';
  * @extends method.any
  * @alias methodThickness
  *
- * @arg {Object} [options] - Same as {@link method.any} with the following differences:
- * @arg {Function} [options.enforce=enforce.thickness]
- * @arg {Function} [options.compare=Thickness.isSame]
- * @arg {Boolean} [options.coerce=true] - If false then don't coerce the value
+ * @param {object} [options] - Same as {@link method.any} with the following differences:
+ * @param {Function} [options.enforce=enforce.thickness]
+ * @param {Function} [options.compare=Thickness.isSame]
+ * @param {boolean} [options.coerce=true] - If false then don't coerce the value
  *
  * @returns {Function}
  */

@@ -9,7 +9,12 @@ import {
 	methodThickness,
 	Thickness
 } from '../index.js';
-import { cssSizeData, dockPointData, elementData, thicknessData } from './testValues.js';
+import {
+	cssSizeData,
+	dockPointData,
+	elementData,
+	thicknessData
+} from './helpers/testValues.js';
 
 describe('method', () => {
 	describe('.cssSize', () => {
@@ -46,7 +51,8 @@ describe('method', () => {
 		describe('(stringify)', () => {
 			testMethod({
 				name: 'dockPoint',
-				true: [DockPoint.POINTS.TOP_CENTER, DockPoint.POINTS.BOTTOM_LEFT],
+				true: [DockPoint.POINTS.TOP_CENTER,
+					DockPoint.POINTS.BOTTOM_LEFT],
 				false: [],
 				coerceTrue: [],
 				extraProps: {

@@ -1,10 +1,11 @@
 import { benchSettings } from 'karma-webpack-bundle';
 import { CssSize } from '../index.js';
 
+/* eslint-disable no-unused-vars */
 suite('CssSize', () => {
-	let sandbox;
-	let cssSize;
-	let cssSize2;
+	let sandbox = null;
+	let cssSize = {};
+	let cssSize2 = {};
 
 	benchmark('init default', () => {
 		sandbox = new CssSize();
@@ -345,5 +346,4 @@ suite('CssSize', () => {
 			cssSize = new CssSize('3em');
 		}
 	});
-
 });
