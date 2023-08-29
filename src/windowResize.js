@@ -18,12 +18,14 @@ class WindowResize extends Queue {
 		super();
 
 		const measureWindow = () => {
-			windowWidth = window.innerWidth;
-			windowHeight = window.innerHeight;
+			windowWidth = (typeof window === 'undefined') ? 0 : window.innerWidth;
+			windowHeight = (typeof window === 'undefined') ? 0 : window.innerHeight;
 			this.trigger();
 		};
 
-		window.addEventListener('resize', throttle(measureWindow, 100));
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', throttle(measureWindow, 100));
+		}
 
 		triggerAll = debounce(() => {
 			super.trigger(null, [windowWidth, windowHeight]);

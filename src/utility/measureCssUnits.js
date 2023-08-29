@@ -9,7 +9,9 @@ export default (units, save, element) => {
 		document.body.appendChild(thisElement);
 	}
 
-	const styles = window.getComputedStyle(thisElement);
+	const styles = (typeof window === 'undefined') ?
+		{ maxHeight: '0px' } :
+		window.getComputedStyle(thisElement);
 
 	units.forEach((unit) => {
 		thisElement.style.maxHeight = '1' + unit;

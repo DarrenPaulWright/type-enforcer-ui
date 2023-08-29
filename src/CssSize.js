@@ -99,7 +99,7 @@ export default class CssSize {
 	 */
 	static isValid(value) {
 		return (isString(value) &&
-			(validSizesMap[value] || CSS_SIZE_REGEX.test(value) || isNonZeroNumber(value))) ||
+				(validSizesMap[value] || CSS_SIZE_REGEX.test(value) || isNonZeroNumber(value))) ||
 			isFloat(value) ||
 			value instanceof CssSize;
 	}
@@ -199,7 +199,10 @@ export default class CssSize {
 				const units = this.units;
 
 				if (units === ROOT_EM) {
-					_self.pixelsValue = oneRem || (oneRem = parseFloat(window.getComputedStyle(document.documentElement).fontSize));
+					_self.pixelsValue = oneRem ||
+						(oneRem = typeof window === 'undefined' ?
+							0 :
+							parseFloat(window.getComputedStyle(document.documentElement).fontSize));
 				}
 				else if (pixelBasedUnits.includes(units)) {
 					_self.pixelsValue = getMeasurement(pixelBasedUnitMeasurements, pixelBasedUnits, units);
