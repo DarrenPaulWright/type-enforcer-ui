@@ -22,7 +22,7 @@ import Thickness from '../Thickness.js';
  * @function enforce.thickness
  * @alias enforceThickness
  *
- * @param {*} value
+ * @param {unknown} value
  * @param {Thickness} alt - Returned if the value is not the correct type
  * @param {boolean} [coerce=false] - If true then coerce the value when possible
  *

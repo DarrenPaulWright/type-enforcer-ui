@@ -20,7 +20,7 @@ import isElement from '../checks/isElement.js';
  * @function enforce.element
  * @alias enforceElement
  *
- * @param {*} value - The value to enforce.
+ * @param {unknown} value - The value to enforce.
  * @param {Element} alt - Returned if the value is not the correct type.
  *
  * @returns {Element}

@@ -93,7 +93,7 @@ export default class CssSize {
 	 *
 	 * @memberOf CssSize
 	 *
-	 * @param {*} value - A value to check.
+	 * @param {unknown} value - A value to check.
 	 *
 	 * @returns {boolean}
 	 */

@@ -108,7 +108,7 @@ export default class DockPoint {
 	 *
 	 * @memberOf DockPoint
 	 *
-	 * @param {*} value - S value to check.
+	 * @param {unknown} value - S value to check.
 	 *
 	 * @returns {boolean}
 	 */
@@ -183,7 +183,7 @@ export default class DockPoint {
 	 * @returns {string}
 	 */
 	toString() {
-		return `${_(this).primary}${_(this).secondary === POINTS.NONE ? '' : SEPARATOR}${_(this).secondary}`;
+		return `${ _(this).primary }${ _(this).secondary === POINTS.NONE ? '' : SEPARATOR }${ _(this).secondary }`;
 	}
 }
 

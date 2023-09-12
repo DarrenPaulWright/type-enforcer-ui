@@ -12,7 +12,7 @@
  * @function is.element
  * @alias isElement
  *
- * @param {*} value - A value to check.
+ * @param {unknown} value - A value to check.
  *
  * @returns {boolean}
  */

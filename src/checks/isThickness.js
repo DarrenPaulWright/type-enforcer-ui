@@ -21,7 +21,7 @@ import Thickness from '../Thickness.js';
  * @function is.thickness
  * @alias isThickness
  *
- * @param {*} value
+ * @param {unknown} value
  * @param {boolean} [coerce=false] - If true then see if the value can be coerced into a Thickness
  *
  * @returns {boolean}

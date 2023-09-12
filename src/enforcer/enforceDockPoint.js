@@ -23,7 +23,7 @@ import DockPoint from '../DockPoint.js';
  * @function enforce.dockPoint
  * @alias enforceDockPoint
  *
- * @param {*} value
+ * @param {unknown} value
  * @param {string} alt - Returned if the value is not the correct type
  * @param {boolean} [coerce=false] - If true then coerce the value when possible
  *

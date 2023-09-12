@@ -165,7 +165,7 @@ import { DockPoint } from 'type-enforcer-ui';
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>\*</code> | S value to check. |
+| value | <code>unknown</code> | S value to check. |
 
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg

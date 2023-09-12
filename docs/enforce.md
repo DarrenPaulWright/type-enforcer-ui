@@ -41,7 +41,7 @@ import { enforceBoolean, enforceString } from 'type-enforcer-ui';
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | alt | <code>CssSize</code> |  | Returned if the value is not the correct type |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 
@@ -69,7 +69,7 @@ enforce.cssSize('14px', new CssSize(), true);
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | alt | <code>string</code> |  | Returned if the value is not the correct type |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 
@@ -97,7 +97,7 @@ enforce.dockPoint('top', new DockPoint(DockPoint.POINTS.BOTTOM), true);
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>\*</code> | The value to enforce. |
+| value | <code>unknown</code> | The value to enforce. |
 | alt | <code>Element</code> | Returned if the value is not the correct type. |
 
 **Example**  
@@ -124,7 +124,7 @@ enforce.element('span', document.createElement('div'), true);
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | alt | <code>Thickness</code> |  | Returned if the value is not the correct type |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then coerce the value when possible |
 

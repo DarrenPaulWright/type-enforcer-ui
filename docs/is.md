@@ -41,7 +41,7 @@ import { isBoolean, isString } from 'type-enforcer-ui';
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a CssSize |
 
 **Example**  
@@ -68,7 +68,7 @@ isCssSize('14px', true);
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a DockPoint |
 
 **Example**  
@@ -95,7 +95,7 @@ isDockPoint('top', true);
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>\*</code> | A value to check. |
+| value | <code>unknown</code> | A value to check. |
 
 **Example**  
 ``` javascript
@@ -115,7 +115,7 @@ isElement(document.createElement('div'));
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>\*</code> |  |  |
+| value | <code>unknown</code> |  |  |
 | [coerce] | <code>boolean</code> | <code>false</code> | If true then see if the value can be coerced into a Thickness |
 
 **Example**  

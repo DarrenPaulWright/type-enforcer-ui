@@ -136,7 +136,7 @@ import { CssSize } from 'type-enforcer-ui';
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>\*</code> | A value to check. |
+| value | <code>unknown</code> | A value to check. |
 
 
 [npm]: https://img.shields.io/npm/v/type-enforcer-ui.svg
