@@ -4,8 +4,9 @@ import methodElement from './methods/methodElement.js';
 
 const SEPARATOR = /[ ,]+/u;
 const SPACE = ' ';
-const splitArgs = (args) => (args.length === 1 && isString(args[0])) ? args[0].trim()
-	.split(SEPARATOR) : args;
+const splitArgs = (args) => (args.length === 1 && isString(args[0])) ?
+	args[0].trim().split(SEPARATOR) :
+	args;
 
 const _ = new PrivateVars();
 

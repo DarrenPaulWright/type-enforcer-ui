@@ -117,7 +117,9 @@ export default class CssSize {
 	 */
 	set(size) {
 		Object.assign(_(this) || _.set(this), _(size) || {
-			size: CssSize.isValid(size) ? size + (isNonZeroNumber(size) ? PIXELS : '') : ZERO_PIXELS,
+			size: CssSize.isValid(size) ?
+				size + (isNonZeroNumber(size) ? PIXELS : '') :
+				ZERO_PIXELS,
 			units: undefined,
 			value: undefined,
 			pixelsValue: undefined,
