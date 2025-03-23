@@ -1,4 +1,4 @@
-declare enum BASIC_POINTS {
+declare const BASIC_POINTS = {
     TOP = 'top',
     RIGHT = 'right',
     BOTTOM = 'bottom',
@@ -7,7 +7,7 @@ declare enum BASIC_POINTS {
     NONE = ''
 }
 
-declare enum POINTS {
+declare const POINTS = {
     TOP = 'top',
     RIGHT = 'right',
     BOTTOM = 'bottom',
@@ -39,8 +39,8 @@ declare enum POINTS {
  * @param {string} [value=DockPoint.POINTS.TOP_CENTER] - Anything from DockPoint.POINTS
  */
 declare class DockPoint {
-    static BASIC_POINTS: BASIC_POINTS;
-    static POINTS: POINTS;
+    static BASIC_POINTS = BASIC_POINTS;
+    static POINTS = POINTS;
 
     /**
      * Determine if something is a valid dock point.
@@ -53,7 +53,7 @@ declare class DockPoint {
      */
     static isValid(value: unknown): boolean;
 
-    constructor(value?: POINTS);
+    constructor(value?: POINTS[keyof POINTS]);
 
     /**
      * Get a new DockPoint with the opposite value.
@@ -75,7 +75,7 @@ declare class DockPoint {
      *
      * @returns {string} DockPoint.BASIC_POINTS.
      */
-    readonly get oppositePrimary(): POINTS;
+    readonly get oppositePrimary(): POINTS[keyof POINTS];
 
     /**
      * Get the opposite of the current secondary.
@@ -86,7 +86,7 @@ declare class DockPoint {
      *
      * @returns {string} DockPoint.BASIC_POINTS.
      */
-    readonly get oppositeSecondary(): POINTS;
+    readonly get oppositeSecondary(): POINTS[keyof POINTS];
 
     /**
      * Determine either the primary or secondary is equivalent to a value.
@@ -98,7 +98,7 @@ declare class DockPoint {
      *
      * @returns {boolean}
      */
-    has(value: BASIC_POINTS): boolean;
+    has(value: BASIC_POINTS[keyof BASIC_POINTS]): boolean;
 
     /**
      * Set the left or right value to the opposite, whether it's the primary or secondary.
@@ -126,7 +126,7 @@ declare class DockPoint {
      *
      * @returns {boolean}
      */
-    isSame(dockPoint: DockPoint | POINTS): boolean;
+    isSame(dockPoint: DockPoint | POINTS[keyof POINTS]): boolean;
 
     /**
      * Get the current value as a string.
@@ -138,13 +138,13 @@ declare class DockPoint {
      */
     toString(): string;
 
-    primary(value: BASIC_POINTS, isForceSave?: boolean): this;
-    primary(): BASIC_POINTS;
+    primary(value: BASIC_POINTS[keyof BASIC_POINTS], isForceSave?: boolean): this;
+    primary(): BASIC_POINTS[keyof BASIC_POINTS];
 
-    secondary(value: BASIC_POINTS, isForceSave?: boolean): this;
-    secondary(): BASIC_POINTS;
+    secondary(value: BASIC_POINTS[keyof BASIC_POINTS], isForceSave?: boolean): this;
+    secondary(): BASIC_POINTS[keyof BASIC_POINTS];
 
-    value(value: POINTS, isForceSave?: boolean): this;
-    value(): POINTS;
+    value(value: POINTS[keyof POINTS], isForceSave?: boolean): this;
+    value(): POINTS[keyof POINTS];
 }
 export default DockPoint;
